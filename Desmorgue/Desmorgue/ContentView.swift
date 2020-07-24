@@ -12,6 +12,7 @@ struct ContentView: View {
     var body: some View {
         
         VStack() {
+            
             Text("Tô certo!")
             Spacer()
             Text("To errado!")

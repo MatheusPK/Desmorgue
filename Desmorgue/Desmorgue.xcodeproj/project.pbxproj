@@ -15,6 +15,7 @@
 		BA7A544924CB4F4B0099792B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA7A544724CB4F4B0099792B /* LaunchScreen.storyboard */; };
 		BA7A545424CB4F4B0099792B /* DesmorgueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A545324CB4F4B0099792B /* DesmorgueTests.swift */; };
 		BA7A545F24CB4F4B0099792B /* DesmorgueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A545E24CB4F4B0099792B /* DesmorgueUITests.swift */; };
+		BAA05BAE24CB67C1002AF9A6 /* Grupo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA05BAD24CB67C1002AF9A6 /* Grupo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		BA7A545A24CB4F4B0099792B /* DesmorgueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesmorgueUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA7A545E24CB4F4B0099792B /* DesmorgueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesmorgueUITests.swift; sourceTree = "<group>"; };
 		BA7A546024CB4F4B0099792B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAA05BAD24CB67C1002AF9A6 /* Grupo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grupo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				BA7A543C24CB4F470099792B /* AppDelegate.swift */,
 				BA7A543E24CB4F470099792B /* SceneDelegate.swift */,
 				BA7A544024CB4F470099792B /* ContentView.swift */,
+				BAA05BAD24CB67C1002AF9A6 /* Grupo.swift */,
 				BA7A544224CB4F4B0099792B /* Assets.xcassets */,
 				BA7A544724CB4F4B0099792B /* LaunchScreen.storyboard */,
 				BA7A544A24CB4F4B0099792B /* Info.plist */,
@@ -270,6 +273,7 @@
 				BA7A543D24CB4F470099792B /* AppDelegate.swift in Sources */,
 				BA7A543F24CB4F470099792B /* SceneDelegate.swift in Sources */,
 				BA7A544124CB4F470099792B /* ContentView.swift in Sources */,
+				BAA05BAE24CB67C1002AF9A6 /* Grupo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
