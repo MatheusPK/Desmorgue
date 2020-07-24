@@ -13,9 +13,13 @@ struct ContentView: View {
         
         VStack() {
             Text("Tô certo!")
+            Spacer()
             Text("To errado!")
+            Spacer()
             Text("To brincando")
+            Spacer()
             Text("+1 teste")
+            Spacer()
             Text("Mais DOIS testes")
 
         }
