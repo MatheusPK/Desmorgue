@@ -10,8 +10,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Tô certo!")
-        Text("To errado!")
+        
+        VStack() {
+            Text("Tô certo!")
+            Text("To errado!")
+            Text("To brincando")
+        }
+
     }
 }
 
