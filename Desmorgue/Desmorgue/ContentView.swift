@@ -16,6 +16,7 @@ struct ContentView: View {
             Text("To errado!")
             Text("To brincando")
             Text("+1 teste")
+            Text("Mais DOIS testes")
 
         }
 
