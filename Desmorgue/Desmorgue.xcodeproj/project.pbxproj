@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA757DC224CE21E7001F1774 /* Mural.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA757DC124CE21E7001F1774 /* Mural.swift */; };
 		BA7A543D24CB4F470099792B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A543C24CB4F470099792B /* AppDelegate.swift */; };
 		BA7A543F24CB4F470099792B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A543E24CB4F470099792B /* SceneDelegate.swift */; };
 		BA7A544124CB4F470099792B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A544024CB4F470099792B /* ContentView.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA757DC124CE21E7001F1774 /* Mural.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mural.swift; sourceTree = "<group>"; };
 		BA7A543924CB4F470099792B /* Desmorgue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Desmorgue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA7A543C24CB4F470099792B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA7A543E24CB4F470099792B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				BA7A543E24CB4F470099792B /* SceneDelegate.swift */,
 				BA7A544024CB4F470099792B /* ContentView.swift */,
 				BAA05BAD24CB67C1002AF9A6 /* Grupo.swift */,
+				BA757DC124CE21E7001F1774 /* Mural.swift */,
 				BA7A544224CB4F4B0099792B /* Assets.xcassets */,
 				BA7A544724CB4F4B0099792B /* LaunchScreen.storyboard */,
 				BA7A544A24CB4F4B0099792B /* Info.plist */,
@@ -274,6 +277,7 @@
 				BA7A543F24CB4F470099792B /* SceneDelegate.swift in Sources */,
 				BA7A544124CB4F470099792B /* ContentView.swift in Sources */,
 				BAA05BAE24CB67C1002AF9A6 /* Grupo.swift in Sources */,
+				BA757DC224CE21E7001F1774 /* Mural.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

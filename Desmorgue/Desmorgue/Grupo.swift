@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Group{
+/*class Group{
     var name:String
     var picture:String
     var goal:String
@@ -44,4 +44,4 @@ class Timeline{
 class Log{
     
 }
-
+*/
