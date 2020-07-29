@@ -86,7 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				BAA05BAD24CB67C1002AF9A6 /* Grupo.swift */,
-				BA757DC124CE21E7001F1774 /* Mural.swift */,
+				8D4F57CE24CF642000528185 /* Extensions.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -95,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				BA7A544024CB4F470099792B /* ContentView.swift */,
-				8D4F57CE24CF642000528185 /* Extensions.swift */,
+				BA757DC124CE21E7001F1774 /* Mural.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
