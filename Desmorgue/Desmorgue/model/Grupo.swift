@@ -7,41 +7,169 @@
 //
 
 import Foundation
+import SwiftUI
 
-/*class Group{
+class Board {
+    var files:[File] = []
+    var notices:[Notice] = []
+    var tasks:[Task] = []
+}
+
+class Group {
     var name:String
-    var picture:String
+    var picture:String?
     var goal:String
-    var members:[Profile]
+    var members:[Profile] = []
     var board:Board
     var chat:String?
     var timeline:Timeline
     var log:Log
     
+    init(name: String, goal: String, owner: Profile) {
+        self.name = name
+        self.goal = goal
+        self.board = Board()
+        self.timeline = Timeline()
+        self.log = Log()
+        self.members.append(owner)
+    }
 }
 
-class Profile{
-    
+class Profile {
+    var id:Int = 0
+    var name:String = "User"
+    var picture: String
 }
 
-class Board{
-    var files:[File]
-    var notices:[Notice]
-    var tasks:[Task]
-}
-
-class Tag{
+class Tag {
     var icon:String
     var description:String
     var deadline:Date?
+    var type:boardType
+    
+    init(type: boardType, description: String) {
+        self.type = type
+        self.description = description
+        self.icon = type.rawValue
+    }
+}
+
+class File {
+    let icon = "file.png"
+    var title:String
+    var description:String
+    var download:String
+    var date:Date
+    
+    init(title: String, description:String, download: String, date: Date) {
+        self.title = title
+        self.description = description
+        self.download = download
+        self.date = date
+    }
+}
+
+class Task {
+    let icon = "task.png"
+    var title:String
+    var description:String?
+    var date:Date
+    var deadline:Date
+    
+    init(title: String, description:String, deadline: Date, date: Date) {
+        self.title = title
+        self.description = description
+        self.deadline = deadline
+        self.date = date
+    }
+}
+
+class Notice {
+    let icon = "notice.png"
+    var title:String
+    var description:String?
+    var date:Date
+    
+    init(title: String, description:String, date: Date) {
+        self.title = title
+        self.description = description
+        self.date = date
+    }
+}
+
+class Timeline:View {
+    var nodes:[TimelineNode] = []
+    
+    func addNode() {
+        var deadline = '25/06/2001'
+        var title = "birthday"
+        var description = "festa boladona e muita braba, comprar bolinho boladao"
+        var newNode = TimelineNode(deadline: deadline, title: title, description: description)
+        nodes.append(newNode)
+    }
     
 }
 
-class Timeline{
+class TimelineNode:View {
+    
+    var deadline:Date
+    var title:String
+    var description:String
+    var link:String?
+    
+    init(deadline: Date, title: String, description: String) {
+        self.deadline = deadline
+        self.title = title
+        self.description = description
+    }
+}
+
+class Log:View {
+    var events:[Event] = []
+    
+    func update(caller: eventType, owner: Profile) {
+        var icon
+        var title
+        if(caller == .Profile) {
+            icon = owner.picture
+            title = "\(owner.name) adicionou uma "
+        }
+        else {
+            
+        }
+        
+        var newEvent = Event(description: description, icon: icon)
+        self.events.append
+    }
+}
+
+class Event {
+    var title:String
+    var icon:String
+    var owner:Profile
+    
+    init(description: String, icon: String) {
+        
+    }
+    
     
 }
 
-class Log{
-    
+enum boardType {
+    case File
+    case Notice
+    case Task
 }
-*/
+
+enum eventType {
+    case Profile // entrada, saida, demorgue
+    case Group // file, task, notice, timeline
+}
+
+struct eventTypeMock {
+    var Profile
+}
+
+var mocks = {
+    "profile" : []
+}
