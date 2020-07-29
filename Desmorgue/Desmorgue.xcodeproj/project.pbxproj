@@ -82,6 +82,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B97BCA024D1E6BF009A7B8D /* model */ = {
+			isa = PBXGroup;
+			children = (
+				BAA05BAD24CB67C1002AF9A6 /* Grupo.swift */,
+				BA757DC124CE21E7001F1774 /* Mural.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		8B97BCA124D1E6C7009A7B8D /* view */ = {
+			isa = PBXGroup;
+			children = (
+				BA7A544024CB4F470099792B /* ContentView.swift */,
+				8D4F57CE24CF642000528185 /* Extensions.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		8B97BCA224D1E6CE009A7B8D /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				BA7A543C24CB4F470099792B /* AppDelegate.swift */,
+				BA7A543E24CB4F470099792B /* SceneDelegate.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		BA7A543024CB4F470099792B = {
 			isa = PBXGroup;
 			children = (
@@ -105,12 +132,9 @@
 		BA7A543B24CB4F470099792B /* Desmorgue */ = {
 			isa = PBXGroup;
 			children = (
-				BA7A543C24CB4F470099792B /* AppDelegate.swift */,
-				BA7A543E24CB4F470099792B /* SceneDelegate.swift */,
-				BA7A544024CB4F470099792B /* ContentView.swift */,
-				BAA05BAD24CB67C1002AF9A6 /* Grupo.swift */,
-				BA757DC124CE21E7001F1774 /* Mural.swift */,
-				8D4F57CE24CF642000528185 /* Extensions.swift */,
+				8B97BCA224D1E6CE009A7B8D /* controller */,
+				8B97BCA124D1E6C7009A7B8D /* view */,
+				8B97BCA024D1E6BF009A7B8D /* model */,
 				BA7A544224CB4F4B0099792B /* Assets.xcassets */,
 				BA7A544724CB4F4B0099792B /* LaunchScreen.storyboard */,
 				BA7A544A24CB4F4B0099792B /* Info.plist */,
