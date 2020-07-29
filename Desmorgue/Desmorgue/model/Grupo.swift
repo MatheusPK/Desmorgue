@@ -128,9 +128,10 @@ class Log:View {
     var events:[Event] = []
     
     func update(caller: eventType, owner: Profile) {
-        var icon
-        var title
-        if(caller == .Profile) {
+        var icon:String
+        var title:String
+        let owner = owner
+        if(caller == .UserEvent) {
             icon = owner.picture
             title = "\(owner.name) adicionou uma "
         }
@@ -138,8 +139,8 @@ class Log:View {
             
         }
         
-        var newEvent = Event(description: description, icon: icon)
-        self.events.append
+        let newEvent = Event(title: title, icon: icon, owner: owner)
+        self.events.append(newEvent)
     }
 }
 
@@ -148,7 +149,7 @@ class Event {
     var icon:String
     var owner:Profile
     
-    init(description: String, icon: String) {
+    init(title: String, icon: String, owner: Profile) {
         
     }
     
@@ -162,14 +163,7 @@ enum boardType {
 }
 
 enum eventType {
-    case Profile // entrada, saida, demorgue
-    case Group // file, task, notice, timeline
+    case UserEvent // entrada, saida, demorgue
+    case GroupEvent // file, task, notice, timeline
 }
 
-struct eventTypeMock {
-    var Profile
-}
-
-var mocks = {
-    "profile" : []
-}
