@@ -6,6 +6,38 @@
 //  Copyright © 2020 Lidiane Chen. All rights reserved.
 //
 
+
+
+
+class Group {
+    var name:String
+    var picture:String?
+    var goal:String
+    var members:[Profile] = []
+    var board:Board
+    var chat:String?
+    var timeline:[TimelineNode] = []
+    var log:[Event] = []
+    
+    init(name: String, goal: String, owner: Profile) {
+        self.name = name
+        self.goal = goal
+        self.board = Board()
+        self.members.append(owner)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /*import Foundation
 import SwiftUI
 

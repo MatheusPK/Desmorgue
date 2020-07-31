@@ -14,10 +14,16 @@ protocol EventProtocol {
     
 }
 
-enum EventType{
-    case Joined
-    case Exited
-    case Task
-    case Notice
-    case File
+
+protocol TaskProtocol {
+    var owner:Profile {get set}
 }
+
+protocol NoticeProtocol {
+    var owner:Profile {get set}
+}
+
+protocol FileProtocol {
+    var owner:Profile {get set}
+}
+
