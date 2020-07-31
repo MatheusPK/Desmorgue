@@ -37,7 +37,7 @@ struct AppBar:View {
     @Binding var offset: CGFloat
     var body: some View{
        
-        VStack(alignment: .leading, content: {
+        VStack(alignment: .center, content: {
             Text("Mural")
                 .font(.title)
                 .foregroundColor(.white)
@@ -98,7 +98,7 @@ struct AppBar:View {
         .padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top)! + 15)
         .padding(.horizontal)
         .padding(.bottom, 8)
-        .background(Color.pink)
+            .background(Color.pink)
     }
 }
 struct Avisos: View {

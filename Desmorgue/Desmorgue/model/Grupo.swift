@@ -6,8 +6,11 @@
 //  Copyright © 2020 Lidiane Chen. All rights reserved.
 //
 
-import Foundation
+/*import Foundation
 import SwiftUI
+
+
+
 
 class Board {
     var files:[File] = []
@@ -101,7 +104,7 @@ class Timeline:View {
     var nodes:[TimelineNode] = []
     
     func addNode() {
-        var deadline = '25/06/2001'
+        var deadline = "25/06/2001'"
         var title = "birthday"
         var description = "festa boladona e muita braba, comprar bolinho boladao"
         var newNode = TimelineNode(deadline: deadline, title: title, description: description)
@@ -144,10 +147,13 @@ class Log:View {
     }
 }
 
-class Event {
+class Event:EventProtocol  {
+    //Variáveis do Protocolo
+    var owner: Profile
+    var event: EventType
+    //aiáveis da Classe
     var title:String
     var icon:String
-    var owner:Profile
     
     init(title: String, icon: String, owner: Profile) {
         
@@ -167,3 +173,4 @@ enum eventType {
     case GroupEvent // file, task, notice, timeline
 }
 
+*/
