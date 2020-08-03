@@ -9,7 +9,9 @@
 import Foundation
 
 
-class File : FileProtocol {
-    
-    
+class File : Activity, FileProtocol {
+    var icon: String
+    var description: String
+    var link: String
+    var date: Date
 }

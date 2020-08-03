@@ -15,6 +15,8 @@ class Activity: EventProtocol{
     var event: EventType
     //Variáveis da Classe
     
-    
+    init() {
+        
+    }
     
 }

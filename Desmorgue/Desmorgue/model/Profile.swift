@@ -13,6 +13,7 @@ class Profile{
     //Variáveis da Classe
     var id:Int = 0
     var name:String = "User"
+    var email: String = "user@gmail.com"
     var picture: String?
-    
+    var group: [Group] = []
 }

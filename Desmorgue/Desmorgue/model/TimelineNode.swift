@@ -10,5 +10,8 @@ import Foundation
 
 
 class TimelineNode{
-    
+    var name: String
+    var deadline: Date
+    var description: String
+    var type: Activity
 }

@@ -6,10 +6,12 @@
 //  Copyright © 2020 Lidiane Chen. All rights reserved.
 //
 
+import Foundation
 
-
-class Task : TaskProtocol {
-    
-    
+class Task : Activity, TaskProtocol {
+    var icon: String
+    var description: String
+    var deadline: Date
+    var date: Date
     
 }
