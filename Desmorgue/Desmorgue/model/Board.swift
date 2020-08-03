@@ -6,17 +6,9 @@
 //  Copyright © 2020 Lidiane Chen. All rights reserved.
 //
 
-import Foundation
+/*import Foundation
 
 class Board{
-    var name: String
-    var description: String
     var content: [Activity] = []
-    var download: String?
-    
-    init(name: String, description: String, content: [Activity]) {
-        self.name = name
-        self.description = description
-    }
-    
 }
+*/

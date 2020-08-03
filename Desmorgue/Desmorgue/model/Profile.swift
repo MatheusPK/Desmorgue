@@ -31,9 +31,9 @@ class Profile{
         
         //MOCK GROUP
         self.group.append(Group(name: "Meu Grupo", goal: "Entender e aprender o Desmorgue", owner: self))
-        self.group[0].board.content.append(notice)
-        self.group[0].board.content.append(task)
-        self.group[0].board.content.append(file)
+        self.group[0].board.append(notice)
+        self.group[0].board.append(task)
+        self.group[0].board.append(file)
 
     }
 }

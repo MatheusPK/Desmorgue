@@ -2,22 +2,20 @@
 //  SubBoard.swift
 //  Desmorgue
 //
-//  Created by Marcos Vinicius Majeveski De Angeli on 31/07/20.
+//  Created by Marcos Vinicius Majeveski De Angeli on 03/08/20.
 //  Copyright © 2020 Lidiane Chen. All rights reserved.
 //
 
 import Foundation
 
-
 class SubBoard{
     var name: String
-    var description: String
-    var content: [Activity] = []
-    var download: String?
+    var content:[Activity]
     
-    init(name: String, description: String) {
+    
+    init(name: String, content: [Activity]) {
         self.name = name
-        self.description = description
+        self.content = content
     }
     
 }
