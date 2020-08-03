@@ -22,6 +22,7 @@ class Task : Activity, TaskProtocol {
         self.deadline = deadline
         self.date = date
         super.init(owner: owner, event: event)
+        print(owner.currentGroup)
         owner.group[owner.currentGroup].timeline.append(self)
         owner.group[owner.currentGroup].log.append(Event(ownerProfile: owner, event: .Task))
     }

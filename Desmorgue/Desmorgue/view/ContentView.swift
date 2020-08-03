@@ -10,6 +10,9 @@ import SwiftUI
 
 struct ContentView: View {
     @State var index = 0
+	
+	public let profile:Profile = Profile()
+	
     var body: some View {
         VStack(spacing: 0){
             ZStack{
@@ -17,17 +20,19 @@ struct ContentView: View {
                     Color.black.opacity(0.05).edgesIgnoringSafeArea(.top)
                 }
                 else if self.index == 1{
-                    Color.red.edgesIgnoringSafeArea(.top)
+                    Color.white.edgesIgnoringSafeArea(.top)
+					BoardView()
                 }
                 else if self.index == 2{
                     Color.green.edgesIgnoringSafeArea(.top)
+					
                 }
                 else if self.index == 3{
                     Color.blue.edgesIgnoringSafeArea(.top)
                 }
             }
             .padding(.bottom)
-            CustomTabs(index: self.$index)
+			CustomTabs(index: self.$index)
         }
     }
 }
@@ -48,21 +53,33 @@ struct CustomTabs: View {
                 Image("home")
             }
             .foregroundColor(Color.black.opacity(self.index == 0 ? 1:0.2))
+			
+			
             Spacer(minLength: 0)
+			
+			
             Button(action: {
                 self.index = 1
             }) {
                 Image("mural")
             }
             .foregroundColor(Color.black.opacity(self.index == 1 ? 1:0.2))
+			
+			
             Spacer(minLength: 0)
+			
+			
             Button(action: {
                 self.index = 2
             }) {
                 Image("timeline")
             }
             .foregroundColor(Color.black.opacity(self.index == 2 ? 1:0.2))
+			
+			
             Spacer(minLength: 0)
+			
+			
             Button(action: {
                 self.index = 3
             }) {
@@ -72,7 +89,7 @@ struct CustomTabs: View {
             
         }
         .padding(.horizontal, 40)
-        .background(Color.white)
+        
     }
 }
 

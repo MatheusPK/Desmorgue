@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct Mural: View {
+struct BoardView: View {
     var body: some View {
         Boardy()
     }

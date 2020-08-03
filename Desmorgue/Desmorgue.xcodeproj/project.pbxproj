@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8D4F57CF24CF642000528185 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4F57CE24CF642000528185 /* Extensions.swift */; };
-		8D57E92A24D4980700382732 /* MuralBolado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D57E92924D4980700382732 /* MuralBolado.swift */; };
 		8D57E92C24D4AC9800382732 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D57E92B24D4AC9800382732 /* Protocols.swift */; };
 		8D57E92E24D4B04A00382732 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D57E92D24D4B04A00382732 /* Profile.swift */; };
 		8D57E93024D4B07E00382732 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D57E92F24D4B07E00382732 /* Activity.swift */; };
@@ -16,9 +15,12 @@
 		8D57E93624D4B0D800382732 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D57E93524D4B0D800382732 /* Notice.swift */; };
 		8D57E93824D4B0F200382732 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D57E93724D4B0F200382732 /* File.swift */; };
 		8D57E93C24D4B5E900382732 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D57E93B24D4B5E900382732 /* Event.swift */; };
+		8D716B6124D8A82000028DE5 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D716B6024D8A82000028DE5 /* BoardView.swift */; };
+		8D716B6324D8A86300028DE5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D716B6224D8A86300028DE5 /* HomeView.swift */; };
+		8D716B6524D8A86F00028DE5 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D716B6424D8A86F00028DE5 /* TimelineView.swift */; };
+		8D716B6724D8A87E00028DE5 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D716B6624D8A87E00028DE5 /* ChatView.swift */; };
 		8DEACCF224D89B61002BC35F /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEACCF124D89B61002BC35F /* Group.swift */; };
 		8DEACCF624D89EBD002BC35F /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEACCF524D89EBD002BC35F /* Board.swift */; };
-		BA757DC224CE21E7001F1774 /* Mural.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA757DC124CE21E7001F1774 /* Mural.swift */; };
 		BA7A543D24CB4F470099792B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A543C24CB4F470099792B /* AppDelegate.swift */; };
 		BA7A543F24CB4F470099792B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A543E24CB4F470099792B /* SceneDelegate.swift */; };
 		BA7A544124CB4F470099792B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A544024CB4F470099792B /* ContentView.swift */; };
@@ -48,7 +50,6 @@
 
 /* Begin PBXFileReference section */
 		8D4F57CE24CF642000528185 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		8D57E92924D4980700382732 /* MuralBolado.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuralBolado.swift; sourceTree = "<group>"; };
 		8D57E92B24D4AC9800382732 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		8D57E92D24D4B04A00382732 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		8D57E92F24D4B07E00382732 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -56,9 +57,12 @@
 		8D57E93524D4B0D800382732 /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 		8D57E93724D4B0F200382732 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		8D57E93B24D4B5E900382732 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		8D716B6024D8A82000028DE5 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		8D716B6224D8A86300028DE5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		8D716B6424D8A86F00028DE5 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		8D716B6624D8A87E00028DE5 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		8DEACCF124D89B61002BC35F /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		8DEACCF524D89EBD002BC35F /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
-		BA757DC124CE21E7001F1774 /* Mural.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mural.swift; sourceTree = "<group>"; };
 		BA7A543924CB4F470099792B /* Desmorgue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Desmorgue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA7A543C24CB4F470099792B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA7A543E24CB4F470099792B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,8 +125,10 @@
 			isa = PBXGroup;
 			children = (
 				BA7A544024CB4F470099792B /* ContentView.swift */,
-				8D57E92924D4980700382732 /* MuralBolado.swift */,
-				BA757DC124CE21E7001F1774 /* Mural.swift */,
+				8D716B6024D8A82000028DE5 /* BoardView.swift */,
+				8D716B6224D8A86300028DE5 /* HomeView.swift */,
+				8D716B6424D8A86F00028DE5 /* TimelineView.swift */,
+				8D716B6624D8A87E00028DE5 /* ChatView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -330,18 +336,20 @@
 				8D57E93024D4B07E00382732 /* Activity.swift in Sources */,
 				BA7A543D24CB4F470099792B /* AppDelegate.swift in Sources */,
 				8DEACCF624D89EBD002BC35F /* Board.swift in Sources */,
+				8D716B6324D8A86300028DE5 /* HomeView.swift in Sources */,
 				8D57E93624D4B0D800382732 /* Notice.swift in Sources */,
 				8DEACCF224D89B61002BC35F /* Group.swift in Sources */,
 				8D4F57CF24CF642000528185 /* Extensions.swift in Sources */,
 				8D57E93424D4B0AF00382732 /* Task.swift in Sources */,
-				8D57E92A24D4980700382732 /* MuralBolado.swift in Sources */,
 				8D57E93C24D4B5E900382732 /* Event.swift in Sources */,
 				BA7A543F24CB4F470099792B /* SceneDelegate.swift in Sources */,
 				BA7A544124CB4F470099792B /* ContentView.swift in Sources */,
 				8D57E93824D4B0F200382732 /* File.swift in Sources */,
-				BA757DC224CE21E7001F1774 /* Mural.swift in Sources */,
+				8D716B6724D8A87E00028DE5 /* ChatView.swift in Sources */,
 				8D57E92E24D4B04A00382732 /* Profile.swift in Sources */,
+				8D716B6124D8A82000028DE5 /* BoardView.swift in Sources */,
 				8D57E92C24D4AC9800382732 /* Protocols.swift in Sources */,
+				8D716B6524D8A86F00028DE5 /* TimelineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

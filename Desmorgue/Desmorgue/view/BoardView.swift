@@ -8,19 +8,15 @@
 
 import SwiftUI
 
-struct Mural: View {
-    var body: some View {
-        Boardy()
-    }
-}
 
-struct Mural_Previews: PreviewProvider {
+
+struct BoardView_Previews: PreviewProvider {
     static var previews: some View {
-        Mural()
+        BoardView()
     }
 }
 
-struct Boardy:View {
+struct BoardView:View {
     @State var index = 0
     @State var offset:CGFloat = 0
     var body: some View{
