@@ -10,13 +10,16 @@ import Foundation
 
 
 class Activity: EventProtocol{
+    
     //Variáveis do Protocolo
     var owner: Profile
     var event: EventType
-    //Variáveis da Classe
     
-    init() {
-        
+    //Variáveis da Classe
+     
+    init(owner: Profile, event: EventType){
+        self.owner = owner
+        self.event = event
     }
     
 }

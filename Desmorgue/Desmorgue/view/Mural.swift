@@ -10,7 +10,7 @@ import SwiftUI
 
 struct Mural: View {
     var body: some View {
-        Board()
+        Boardy()
     }
 }
 
@@ -20,7 +20,7 @@ struct Mural_Previews: PreviewProvider {
     }
 }
 
-struct Board:View {
+struct Boardy:View {
     @State var index = 1
     @State var offset:CGFloat = 0
     var body: some View{
@@ -36,7 +36,6 @@ struct AppBar:View {
     @Binding var index:Int
     @Binding var offset: CGFloat
     var body: some View{
-       
         VStack(alignment: .center, content: {
             Text("Mural")
                 .font(.title)

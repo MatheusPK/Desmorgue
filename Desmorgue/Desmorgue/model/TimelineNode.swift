@@ -9,9 +9,9 @@
 import Foundation
 
 
-class TimelineNode{
+/*class TimelineNode{
     var name: String
     var deadline: Date
     var description: String
-    var type: Activity
-}
+    var type: TaskProtocol
+}/*

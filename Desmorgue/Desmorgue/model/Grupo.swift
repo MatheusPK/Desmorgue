@@ -16,7 +16,7 @@ class Group {
     var members:[Profile] = []
     var board:Board
     var chat:String?
-    var timeline:[TimelineNode] = []
+    var timeline:[Activity] = []
     var log:[Event] = []
     
     init(name: String, goal: String, owner: Profile) {
@@ -25,6 +25,7 @@ class Group {
         self.board = Board()
         self.members.append(owner)
     }
+    
 }
 
 
