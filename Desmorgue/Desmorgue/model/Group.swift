@@ -8,14 +8,33 @@
 
 import Foundation
 
-class Group {
+class Group:Codable, ObservableObject {
+    
+    /*private var boardData:[Data] = []
+    
+    var board: [EventProtocol] {
+        get{
+            return self.boardData.compactMap{
+                (try? $0.convert(to: Task.self)) ?? (try? $0.convert(to: File.self)) ?? (try? $0.convert(to: Notice.self))
+            }
+        }
+        set{
+            boardData = (newValue as? [Task])
+            (try? $0.newValue(to: load(from: oi))) ?? (try? $0.convert(to: File.self)) ?? (try? $0.convert(to: Notice.self))
+        }
+    }*/
+    
+    var taskBoard:[Task] = []
+    var fileBoard:[File] = []
+    var noticeBoard:[Notice] = []
+    
+    
     var name:String
-    var picture:String?
+    var picture:String = ""
     var goal:String
     var members:[Profile] = []
-    var board: [Activity] = []
     var chat:String?
-    var timeline:[Activity] = []
+    var timeline:[Task] = []
     var log:[Event] = []
     
     init(name: String, goal: String, owner: Profile) {

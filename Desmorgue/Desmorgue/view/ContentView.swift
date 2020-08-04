@@ -9,32 +9,44 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var index = 0
 	
-	public let profile:Profile = Profile()
+    @State var index = 0
+	@State public var isMenuActive:Bool = false
+	@State public var profilePage:Bool = false
+	
+	
+	@ObservedObject var profile = dao.userProfile
 	
     var body: some View {
-        VStack(spacing: 0){
-            ZStack{
-                if self.index == 0{
-                    Color.black.opacity(0.05).edgesIgnoringSafeArea(.top)
-                }
-                else if self.index == 1{
-                    Color.white.edgesIgnoringSafeArea(.top)
-					BoardView()
-                }
-                else if self.index == 2{
-                    Color.green.edgesIgnoringSafeArea(.top)
-					
-                }
-                else if self.index == 3{
-                    Color.blue.edgesIgnoringSafeArea(.top)
-                }
-            }
-            .padding(.bottom)
-			CustomTabs(index: self.$index)
-        }
-    }
+		ZStack{
+			if !profilePage {
+				VStack(){
+					ZStack{
+						if self.index == 0{
+							Color.black.opacity(0.05).edgesIgnoringSafeArea(.top)
+							Home()
+						}
+						else if self.index == 1{
+							Color.white.edgesIgnoringSafeArea(.top)
+							BoardView()
+						}
+						else if self.index == 2{
+							Color.green.edgesIgnoringSafeArea(.top)
+							
+						}
+						else if self.index == 3{
+							Color.blue.edgesIgnoringSafeArea(.top)
+						}
+					}
+					.padding(.bottom)
+					CustomTabs(index: self.$index)
+				}
+			}
+			else{
+				ProfileView()
+			}
+		}
+	}
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -92,4 +104,3 @@ struct CustomTabs: View {
         
     }
 }
-

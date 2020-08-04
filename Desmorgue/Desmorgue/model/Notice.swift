@@ -8,17 +8,23 @@
 
 import Foundation
 
-class Notice : Activity, NoticeProtocol {
+class Notice : EventProtocol, NoticeProtocol, Codable {
+    var owner:Profile
+    var event: EventType
+    
     var icon: String = ""
     var title: String
     var description: String
     var date: Date
     
     init(owner: Profile, event: EventType,title: String, description: String, date: Date){
+        self.owner = owner
+        self.event = event
+        
         self.title = title
         self.description = description
         self.date = date
-        super.init(owner: owner, event: event)
+        
         owner.group[owner.currentGroup].log.append(Event(ownerProfile: owner, event: .Notice))
     }
     

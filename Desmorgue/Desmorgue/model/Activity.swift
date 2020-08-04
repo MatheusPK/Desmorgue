@@ -6,10 +6,10 @@
 //  Copyright © 2020 Lidiane Chen. All rights reserved.
 //
 
-import Foundation
+/*import Foundation
 
 
-class Activity: EventProtocol{
+class Activity: EventProtocol, Codable{
     
     //Variáveis do Protocolo
     var owner: Profile
@@ -23,3 +23,4 @@ class Activity: EventProtocol{
     }
     
 }
+*/

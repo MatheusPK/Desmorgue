@@ -11,7 +11,7 @@ import Foundation
 
 
 
-class Event: EventProtocol {
+class Event: EventProtocol, Codable {
     
     //Variáveis do Protocolo
     var owner: Profile
@@ -19,7 +19,7 @@ class Event: EventProtocol {
     
     //Variáveis da Classe
     var description:String
-    var associatedObject:(Task, File, Notice, Profile)?
+    var associatedObject:Data?
     
     init(ownerProfile: Profile, event: EventType){
         self.owner = ownerProfile
@@ -30,7 +30,7 @@ class Event: EventProtocol {
 }
 
 
-enum EventType : String{
+enum EventType : String, Codable{
     case Joined = "entrou no grupo"
     case Exited = "saiu do grupo"
     case Task = "adicionou uma tarefa"

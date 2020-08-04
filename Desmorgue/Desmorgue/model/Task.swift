@@ -8,7 +8,10 @@
 
 import Foundation
 
-class Task : Activity, TaskProtocol {
+class Task : EventProtocol, TaskProtocol, Codable{
+    var owner:Profile
+    var event: EventType
+    
     var icon: String = ""
     var title: String
     var description: String
@@ -17,12 +20,14 @@ class Task : Activity, TaskProtocol {
     
     
     init(owner: Profile, event: EventType, title: String, description: String, deadline: Date, date: Date){
+        self.owner = owner
+        self.event = event
+        
         self.title = title
         self.description = description
         self.deadline = deadline
         self.date = date
-        super.init(owner: owner, event: event)
-        print(owner.currentGroup)
+        
         owner.group[owner.currentGroup].timeline.append(self)
         owner.group[owner.currentGroup].log.append(Event(ownerProfile: owner, event: .Task))
     }
