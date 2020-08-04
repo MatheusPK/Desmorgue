@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Task : EventProtocol, TaskProtocol, Codable{
+class Task : EventProtocol, TaskProtocol, Codable, ObservableObject{
     var owner:Profile
     var event: EventType
     

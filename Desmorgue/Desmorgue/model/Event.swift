@@ -11,7 +11,7 @@ import Foundation
 
 
 
-class Event: EventProtocol, Codable {
+class Event: EventProtocol, Codable, ObservableObject {
     
     //Variáveis do Protocolo
     var owner: Profile

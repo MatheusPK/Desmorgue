@@ -18,21 +18,29 @@ struct Home_Previews: PreviewProvider {
 
 
 struct Home:View {
+    
+    
+    
     var body: some View{
-        VStack(){
-            HomeTop()
-            
-            Spacer()
-            
-            HomeMembers()
-            
-            Spacer()
-            
-            HomeGoal()
-            
-            Spacer()
-            
-            HomeLog()
+        ScrollView(.vertical){
+            VStack(){
+                HomeTop()
+                
+                Spacer()
+                    .frame(height: 25)
+                
+                HomeMembers()
+                
+                Spacer()
+                    .frame(height: 15)
+                
+                HomeGoal()
+                
+                Spacer()
+                    .frame(height: 15)
+                
+                HomeLog()
+            }
         }
     }
 }
@@ -40,53 +48,93 @@ struct Home:View {
 
 
 struct HomeTop:View {
-    @ObservedObject var group = dao.userProfile.group[dao.userProfile.currentGroup]
-    
+    var profile = dao.userProfile
+    var group = dao.userProfile.group[dao.userProfile.currentGroup]
     
     var body: some View{
         HStack(){
             if group.picture != ""{
                 Button(action: { ContentView().isMenuActive = true}){
-                    Image(group.picture).frame(width: 50, height: 50, alignment: .center)
+                    Image(group.picture)
+                        .frame(width: 50, height: 50, alignment: .center)
                 }
             }
             else{
                 Button(action: {ContentView().isMenuActive = true}){
-                    Circle().foregroundColor(.yellow).frame(width: 50, height: 50, alignment: .center)
+                    Circle()
+                        .frame(width: 50, height: 50, alignment: .center)
+                        .foregroundColor(.yellow)
                 }
             }
             
             Spacer()
             
             Text(group.name)
+                .font(.system(size: 30))
             
             Spacer()
             
             Button(action: {ContentView().profilePage = true}){
-                Circle().foregroundColor(.blue).frame(width: 50, height: 50, alignment: .center)
+                Circle()
+                    .frame(width: 50, height: 50, alignment: .center)
+                    .foregroundColor(.blue)
             }
-        }
+        }.padding(.horizontal, 15)
     }
 }
 
 
 struct HomeMembers:View {
-    @ObservedObject var profile = dao.userProfile
+    static var group = dao.userProfile.group[dao.userProfile.currentGroup]
+    var membersPictures = getPictures(group: group)
+    var membersNames = getNames(group: group)
+    var membersCount = group.members.count
+    
+    
     
     var body: some View{
-        VStack(spacing: 0){
-            Text("Integrantes do Grupo")
-            
-            Spacer()
-            
-            HStack(){
-                VStack{
-                    Circle().foregroundColor(.green).frame(width: 50, height: 50, alignment: .center)
+        HStack(){
+            VStack(spacing: 5){
+                
+                HStack(){
+                    Text("Integrantes do Grupo:")
+                        .padding(.trailing)
+                        .font(.system(size: 25))
                     
-                    Text(profile.name)
-                }
+                    Spacer()
+                }.padding(.leading, 10)
                 
-                
+                ScrollView(.horizontal){
+                    
+                    HStack(spacing: 20){
+                        ForEach(0...(membersCount-1), id: \.self) {i in
+                            VStack(spacing: 0){
+                                if self.membersPictures.count != 0{
+                                    if self.membersPictures[i] != nil{
+                                        Image("\(self.membersPictures[i])")
+                                            .frame(width: 50, height: 50)
+                                    }
+                                    else{
+                                        Circle()
+                                        .frame(width: 50, height: 50)
+                                            .foregroundColor(.pink)
+                                    }
+                                }
+                                else{
+                                    Circle()
+                                    .frame(width: 50, height: 50)
+                                        .foregroundColor(.red)
+                                }
+                                
+                                
+                                Text("\(self.membersNames[i])")
+                                    .font(.system(size: 18))
+                            }
+                        }
+                    }
+                    
+                    
+                }.padding(.leading, 20)
             }
         }
     }
@@ -95,16 +143,42 @@ struct HomeMembers:View {
 
 
 struct HomeGoal:View {
+    var group = dao.userProfile.group[dao.userProfile.currentGroup]
+    
+    
     var body: some View{
         VStack(spacing: 0){
-            Text("Objetivos do Grupo")
+            HStack(){
+                Text("Objetivos do Grupo:")
+                    .padding(.trailing)
+                    .font(.system(size: 25))
+                
+                Spacer()
+            }.padding(.leading, 10)
             
-            Spacer()
+            Spacer().frame(height:15)
             
             ZStack(){
-                Rectangle().strokeBorder().cornerRadius(15).foregroundColor(.clear)
+                Rectangle()
+                    .cornerRadius(40)
+                    .foregroundColor(.black)
+                    .padding(.horizontal, 15)
                 
-                Text("Nosso objetivo é fazer com que você consiga crescer na sua jornada com o auxílio do estudo em grupo que proporcionamos aqui na plataforma")
+                Rectangle()
+                    .cornerRadius(38)
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 15)
+                    .padding(.vertical, 2)
+                    .padding(.horizontal, 2)
+                
+                Text("\(group.goal)")
+                    .padding(.horizontal, 25)
+                    .padding(.vertical, 15)
+                    .font(.system(size: 20))
+                    .multilineTextAlignment(.leading)
+                
+                
+                
             }
         }
     }
@@ -113,9 +187,44 @@ struct HomeGoal:View {
 
 
 struct HomeLog:View {
+    var log = dao.userProfile.group[dao.userProfile.currentGroup].log
+    
     var body: some View{
         VStack(spacing: 0){
-            Text("Esse é o log")
+            HStack(){
+                Text("Atividades Recentes:")
+                    .padding(.trailing)
+                    .font(.system(size: 25))
+                
+                Spacer()
+            }.padding(.leading, 10)
+            
+            Spacer()
+                .frame(height: 15)
+            
+            
+        }
+        
+    }
+}
+
+
+
+func getPictures(group: Group) -> [String]{
+    var pics:[String] = []
+    for member in group.members {
+        if member.picture != nil{
+            pics.append(member.picture!)
         }
     }
+    return pics
+}
+
+
+func getNames(group: Group) -> [String]{
+    var names:[String] = []
+    for member in group.members {
+        names.append(member.name)
+    }
+    return names
 }

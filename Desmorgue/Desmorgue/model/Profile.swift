@@ -17,7 +17,6 @@ class Profile:Codable, ObservableObject{
     var picture: String?
     var group: [Group] = []
     public var currentGroup = 0
-    
-    
+
     
 }

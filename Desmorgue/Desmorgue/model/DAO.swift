@@ -9,12 +9,13 @@
 import Foundation
 
 var dao = (try? DAO.load()) ?? DAO()
-class DAO: Codable {
+class DAO: Codable, ObservableObject {
     var userProfile:Profile
     
     fileprivate init(){
         self.userProfile = Profile()
         self.groupMock()
+        self.profilesMock(number: 3)
     }
     
     
@@ -25,7 +26,7 @@ class DAO: Codable {
         let dataDate = data.date(from: "01/01/2020")
         
         //MOCK GROUP
-        self.userProfile.group.append(Group(name: "Meu Grupo", goal: "Entender e aprender o Desmorgue", owner: self.userProfile))
+        self.userProfile.group.append(Group(name: "Meu Grupo", goal: "Nosso objetivo é fazer com que você consiga se organizar em grupo e com isso ter um melhor resultado na sua jornada de Aprendiz!", owner: self.userProfile))
         
         
         //MOCK BOARDS
@@ -38,5 +39,12 @@ class DAO: Codable {
         self.userProfile.group[userProfile.currentGroup].taskBoard.append(task)
         self.userProfile.group[userProfile.currentGroup].fileBoard.append(file)
 
+    }
+    
+    func profilesMock(number: Int){
+        let group = userProfile.group[userProfile.currentGroup]
+        for _ in 0...number{
+            group.members.append(userProfile)
+        }
     }
 }

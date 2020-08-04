@@ -9,7 +9,7 @@
 import Foundation
 
 
-class File : EventProtocol, FileProtocol, Codable {
+class File : EventProtocol, FileProtocol, Codable, ObservableObject {
     var owner:Profile
     var event: EventType
     

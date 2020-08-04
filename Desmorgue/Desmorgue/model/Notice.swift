@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Notice : EventProtocol, NoticeProtocol, Codable {
+class Notice : EventProtocol, NoticeProtocol, Codable, ObservableObject {
     var owner:Profile
     var event: EventType
     
