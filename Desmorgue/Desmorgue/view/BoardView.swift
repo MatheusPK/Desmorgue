@@ -21,6 +21,11 @@ struct BoardView:View {
     @State var offset:CGFloat = 0
     var body: some View{
         VStack(spacing: 0){
+            
+            MuralTop()
+            
+            Spacer().frame(height: 15)
+            
             AppBar(index: self.$index, offset: self.$offset)
             if self.index==0{
                 Avisos()
@@ -32,7 +37,6 @@ struct BoardView:View {
                 Arquivos()
             }
         }
-        .edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -41,11 +45,7 @@ struct AppBar:View {
     @Binding var offset: CGFloat
     var body: some View{
         VStack(alignment: .center, content: {
-            Text("Mural")
-                .font(.title)
-                .foregroundColor(.white)
-                .padding(.leading)
-                .padding(.bottom)
+            
             HStack{
                 Button(action: {
                     self.index = 0
@@ -53,14 +53,15 @@ struct AppBar:View {
                     VStack(spacing: 8){
                         HStack(spacing: 12){
                         Image("bino")
-                            .foregroundColor(self.index == 0 ? .white: Color.white.opacity(0.7))
+                            .foregroundColor(self.index == 0 ? .black: Color.black.opacity(0.7))
                         Text("Avisos")
-                            .foregroundColor(self.index == 0 ? .white: Color.white.opacity(0.7))
+                            .foregroundColor(self.index == 0 ? .black: Color.black.opacity(0.7))
                         
                     }
                     Capsule()
-                        .fill(self.index == 0 ? Color.white: Color.clear)
+                        .fill(self.index == 0 ? Color.black: Color.clear)
                         .frame(height: 4)
+                        .padding(.horizontal, 5)
                     }
                 }
                 Button(action: {
@@ -69,14 +70,15 @@ struct AppBar:View {
                     VStack(spacing: 8){
                         HStack(spacing: 12){
                             Image("arquivos")
-                                .foregroundColor(self.index == 1 ? .white: Color.white.opacity(0.7))
+                                .foregroundColor(self.index == 1 ? .black: Color.black.opacity(0.7))
                             Text("Arquivos")
-                                .foregroundColor(self.index == 1 ? .white: Color.white.opacity(0.7))
+                                .foregroundColor(self.index == 1 ? .black: Color.black.opacity(0.7))
                                    
                         }
                         Capsule()
-                            .fill(self.index == 1 ? Color.white: Color.clear)
+                            .fill(self.index == 1 ? Color.black: Color.clear)
                             .frame(height: 4)
+                            .padding(.horizontal, 5)
                     }
                 }
                 Button(action: {
@@ -85,23 +87,19 @@ struct AppBar:View {
                     VStack(spacing: 8){
                         HStack(spacing: 12){
                             Image("tarefas")
-                                .foregroundColor(self.index == 2 ? .white: Color.white.opacity(0.7))
+                                .foregroundColor(self.index == 2 ? .black: Color.black.opacity(0.7))
                             Text("Tarefas")
-                                .foregroundColor(self.index == 2 ? .white: Color.white.opacity(0.7))
+                                .foregroundColor(self.index == 2 ? .black: Color.black.opacity(0.7))
                                    
                         }
                         Capsule()
-                            .fill(self.index == 2 ? Color.white: Color.clear)
+                            .fill(self.index == 2 ? Color.black: Color.clear)
                             .frame(height: 4)
+                            .padding(.horizontal, 5)
                     }
                 }
             }
         })
-            
-        .padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top)! + 15)
-        .padding(.horizontal)
-        .padding(.bottom, 8)
-            .background(Color.pink)
     }
 }
 struct Avisos: View {
@@ -140,6 +138,43 @@ struct Tarefas: View {
                    }
                }
                .background(Color.white)
+    }
+}
+
+
+struct MuralTop:View {
+    var profile = dao.userProfile
+    var group = dao.userProfile.group[dao.userProfile.currentGroup]
+    
+    var body: some View{
+        HStack(){
+            if group.picture != ""{
+                Button(action: { ContentView().isMenuActive = true}){
+                    Image(group.picture)
+                        .frame(width: 50, height: 50, alignment: .center)
+                }
+            }
+            else{
+                Button(action: {ContentView().isMenuActive = true}){
+                    Circle()
+                        .frame(width: 50, height: 50, alignment: .center)
+                        .foregroundColor(.yellow)
+                }
+            }
+            
+            Spacer()
+            
+            Text("Mural")
+                .font(.system(size: 30))
+            
+            Spacer()
+            
+            Button(action: {ContentView().profilePage = true}){
+                Circle()
+                    .frame(width: 50, height: 50, alignment: .center)
+                    .foregroundColor(.blue)
+            }
+        }.padding(.horizontal, 15)
     }
 }
 

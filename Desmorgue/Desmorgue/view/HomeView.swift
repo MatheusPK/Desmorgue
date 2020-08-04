@@ -86,7 +86,7 @@ struct HomeTop:View {
 
 struct HomeMembers:View {
     static var group = dao.userProfile.group[dao.userProfile.currentGroup]
-    var membersPictures = getPictures(group: group)
+    var membersPictures:[String?] = getPictures(group: group)
     var membersNames = getNames(group: group)
     var membersCount = group.members.count
     
@@ -111,7 +111,7 @@ struct HomeMembers:View {
                             VStack(spacing: 0){
                                 if self.membersPictures.count != 0{
                                     if self.membersPictures[i] != nil{
-                                        Image("\(self.membersPictures[i])")
+                                        Image("\(self.membersPictures[i]!)")
                                             .frame(width: 50, height: 50)
                                     }
                                     else{
