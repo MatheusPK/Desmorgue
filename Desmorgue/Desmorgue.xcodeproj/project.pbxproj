@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B3EEB4424D9D52A00E4915F /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3EEB4324D9D52A00E4915F /* DAO.swift */; };
 		8D4F57CF24CF642000528185 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4F57CE24CF642000528185 /* Extensions.swift */; };
 		8D57E92C24D4AC9800382732 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D57E92B24D4AC9800382732 /* Protocols.swift */; };
 		8D57E92E24D4B04A00382732 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D57E92D24D4B04A00382732 /* Profile.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B3EEB4324D9D52A00E4915F /* DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
 		8D4F57CE24CF642000528185 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8D57E92B24D4AC9800382732 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		8D57E92D24D4B04A00382732 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				8DEACCF124D89B61002BC35F /* Group.swift */,
 				8D57E92B24D4AC9800382732 /* Protocols.swift */,
 				8D4F57CE24CF642000528185 /* Extensions.swift */,
+				8B3EEB4324D9D52A00E4915F /* DAO.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				BA7A543F24CB4F470099792B /* SceneDelegate.swift in Sources */,
 				BA7A544124CB4F470099792B /* ContentView.swift in Sources */,
 				8D57E93824D4B0F200382732 /* File.swift in Sources */,
+				8B3EEB4424D9D52A00E4915F /* DAO.swift in Sources */,
 				8D716B6724D8A87E00028DE5 /* ChatView.swift in Sources */,
 				8D57E92E24D4B04A00382732 /* Profile.swift in Sources */,
 				8D716B6124D8A82000028DE5 /* BoardView.swift in Sources */,
