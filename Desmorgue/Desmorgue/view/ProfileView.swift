@@ -20,7 +20,7 @@ struct ProfileView_Previews:PreviewProvider{
 struct ProfileView:View {
     var body: some View{
         VStack(){
-            Text("Esse é o perfil")
+            Text("Esse é o@@ perfil")
         }
     }
 }
