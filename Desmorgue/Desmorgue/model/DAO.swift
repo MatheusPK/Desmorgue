@@ -17,7 +17,6 @@ class DAO: Codable, ObservableObject {
         self.userProfile = Profile(name: "User")
         self.profiles.append(self.userProfile)
         self.groupMock()
-        self.profilesMock(number: 6)
     }
     
     
@@ -31,6 +30,8 @@ class DAO: Codable, ObservableObject {
         //MOCK GROUP
         self.userProfile.group.append(Group(name: "Meu Grupo", goal: "Nosso objetivo é fazer com que você consiga se organizar em grupo e com isso ter um melhor resultado na sua jornada de Aprendiz!", owner: self.userProfile))
         
+        
+        self.profilesMock(number: 6)
         
         //MOCK BOARDS
         let task = Task(owner: self.userProfile,title: "Entender a mecânica do app", description: "Esse é mural de Tarefas. O app funciona com uma página inicial, uma sala de chat, uma página com Murais e uma linha do tempo integrada com esse mural de tarefas, isso tudo para que você consiga se organizar em grupo. Sua tarefa é dar uma explorada e nos dizer o que achou!", deadline: dataDeadline!, date: dataDate!)

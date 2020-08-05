@@ -239,23 +239,23 @@ struct HomeLog:View {
                         }
                         else if self.logEvents[i] == EventType.TimelineNode{
                             Image(systemName: "mappin.circle")
-                                .frame(width: 100)
+                                .frame(width: 100, height: 50)
                         }/*
                         else if self.logEvents[i] == EventType.Exited || self.logEvents[i] == EventType.Joined {
                             
                             if self.logIcons[i] != "null"{
                                 Image("\(self.logIcons[i])")
-                                .frame(width: 100)
+                                .frame(width: 100, height: 50)
                             }
                             else {
                                 Image(systemName: "person.crop.square")
-                                    .frame(width: 100)
+                                    .frame(width: 100, height: 50)
                             }
                             
                         }*/
                         else{
                             Spacer()
-                                .frame(width: 100)
+                                .frame(width: 100, height: 50)
                         }
                         
                         
