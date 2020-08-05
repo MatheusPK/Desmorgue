@@ -210,7 +210,6 @@ struct HomeLog:View {
     var logIcons = getLogIcons(group: group)
     var logDescriptions = getLogDescriptions(group: group)
     var logCount = group.log.count
-    var membersPictures:[String?] = getPictures(group: group)
     
     
     var body: some View{
@@ -244,8 +243,8 @@ struct HomeLog:View {
                         }/*
                         else if self.logEvents[i] == EventType.Exited || self.logEvents[i] == EventType.Joined {
                             
-                            if self.membersPictures[i] != "null"{
-                                Image("\(self.membersPictures[i])")
+                            if self.logIcons[i] != "null"{
+                                Image("\(self.logIcons[i])")
                                 .frame(width: 100)
                             }
                             else {
@@ -306,7 +305,14 @@ func getLogEvents(group: Group) -> [EventType]{
 func getLogIcons(group: Group) -> [String]{
     var logIcons:[String] = []
     for event in group.log {
-        logIcons.append(event.icon)
+        if event.icon != nil{
+            logIcons.append(event.icon!)
+        }
+        else{
+            logIcons.append("null")
+        }
+        
+        
     }
     return logIcons
 }

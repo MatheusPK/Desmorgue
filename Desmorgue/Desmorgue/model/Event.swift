@@ -19,13 +19,18 @@ class Event: EventProtocol, Codable, ObservableObject {
     
     //Variáveis da Classe
     var description:String
-    var icon:String
+    var icon:String?
     var associatedObject:Data?
     
-    init(ownerProfile: Profile, event: EventType, icon: String){
+    init(ownerProfile: Profile, event: EventType, icon: String?){
         self.owner = ownerProfile
         self.eventType = event
-        self.icon = icon
+        if icon != nil{
+            self.icon = icon!
+        }
+        else{
+            self.icon = nil
+        }
         self.description = owner.name + self.eventType.rawValue
     }
     

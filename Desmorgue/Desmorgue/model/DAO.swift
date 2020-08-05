@@ -47,7 +47,9 @@ class DAO: Codable, ObservableObject {
     func profilesMock(number: Int){
         let group = userProfile.group[userProfile.currentGroup]
         for i in 1...number-1{
-            group.members.append(Profile(name: "User \(i + 1)"))
+            let newUser = Profile(name: "User \(i + 1)")
+            group.members.append(newUser)
+            group.log.append(Event(ownerProfile: newUser, event: .Joined, icon: newUser.picture))
         }
     }
 }
