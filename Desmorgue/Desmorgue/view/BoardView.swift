@@ -103,18 +103,33 @@ struct AppBar:View {
     }
 }
 struct Avisos: View {
+    static var group = dao.userProfile.group[dao.userProfile.currentGroup]
+    var notices = group.noticeBoard
+    var noticesTitles = getNoticesTitles(group: group)
+    var noticesCount = group.noticeBoard.count
+    
     var body: some View{
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing:0){
-                ForEach(1...5,id: \.self){i in
-                    Image("p\(i)")
-                    .resizable()
-                    .frame(height: 190)
-                    .cornerRadius(15)
-                    .padding(.top)
-                    .padding(.horizontal)
-                            
                 
+                ForEach(0...(self.noticesCount-1),id: \.self){i in
+                    
+                    Button(action: {}){
+                        ZStack(){
+                            Rectangle()
+                            .frame(height: 160)
+                            .cornerRadius(15)
+                            .padding(.vertical, 15)
+                            .padding(.horizontal, 15)
+                            .foregroundColor(.green)
+                            .opacity(0.6)
+                            
+                            Text(self.noticesTitles[i])
+                                .font(.system(size: 25))
+                                .foregroundColor(.black)
+                                .padding(.horizontal, 15)
+                        }
+                    }
                 }
             }
         }.padding(.bottom, 18)
@@ -181,3 +196,10 @@ struct MuralTop:View {
 }
 
 
+func getNoticesTitles(group: Group) -> [String]{
+    var noticeTitles:[String] = []
+    for notice in group.noticeBoard {
+        noticeTitles.append(notice.title)
+    }
+    return noticeTitles.reversed()
+}
