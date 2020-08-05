@@ -21,9 +21,8 @@ struct TimelineScollView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack() {
                     ForEach(0...(taskCount-1), id: \.self) {i in
-                        HStack() {
+                        HStack(spacing: 15) {
                             Text(dateToString(date: self.tasksDeadlines[i]))
-                            Spacer()
                             if self.now < self.tasksDeadlines[i] {
                                 Circle()
                                     .frame(width: 50, height: 50)
@@ -38,10 +37,8 @@ struct TimelineScollView: View {
                         }
 
                     }
-                    Spacer()
-                    
-                    
-                }
+                                
+                }.padding(.leading)
                 
             }
         }
@@ -111,6 +108,6 @@ func getTaskDeadline(tasks: [Task]) -> [Date] {
 
 func dateToString(date: Date) -> String {
     let data = DateFormatter()
-    data.dateFormat = "dd/MM/yyyy"
+    data.dateFormat = "dd/MM/yy"
     return data.string(from: date)
 }
