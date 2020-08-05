@@ -156,23 +156,25 @@ struct MuralTop:View {
             }
             else{
                 Button(action: {ContentView().isMenuActive = true}){
-                    Circle()
+                    Image(systemName: "ellipsis.circle")
                         .frame(width: 50, height: 50, alignment: .center)
-                        .foregroundColor(.yellow)
+                        .foregroundColor(.black)
+                        .scaleEffect(2)
                 }
             }
             
             Spacer()
             
-            Text("Mural")
+            Text("Murais")
                 .font(.system(size: 30))
             
             Spacer()
             
             Button(action: {ContentView().profilePage = true}){
-                Circle()
+                Image(systemName: "person.circle")
                     .frame(width: 50, height: 50, alignment: .center)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.black)
+                    .scaleEffect(2)
             }
         }.padding(.horizontal, 15)
     }
