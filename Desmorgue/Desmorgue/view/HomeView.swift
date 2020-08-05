@@ -118,7 +118,6 @@ struct HomeMembers:View {
                     HStack(spacing: 20){
                         ForEach(0...(membersCount-1), id: \.self) {i in
                             VStack(spacing: 0){
-                                if self.membersPictures.count != 0{
                                     if self.membersPictures[i] != "null"{
                                         Image("\(self.membersPictures[i])")
                                             .frame(width: 50, height: 50)
@@ -128,13 +127,6 @@ struct HomeMembers:View {
                                             .frame(width: 50, height: 50)
                                             .foregroundColor(.pink)
                                     }
-                                }
-                                else{
-                                    Circle()
-                                        .frame(width: 50, height: 50)
-                                        .foregroundColor(.red)
-                                }
-                                
                                 Text("\(self.membersNames[i])")
                                     .font(.system(size: 16))
                             }
@@ -233,29 +225,37 @@ struct HomeLog:View {
                     HStack(spacing: 15){
                         
                         if self.logEvents[i] == EventType.File || self.logEvents[i] == EventType.Task || self.logEvents[i] == EventType.Notice {
-                            Image(systemName: "\(self.logIcons[i])")
+                            
+                            Image(systemName: self.logIcons[i])
                                 .frame(width: 100, height: 50)
                                 .scaleEffect(2)
                         }
                         else if self.logEvents[i] == EventType.TimelineNode{
+                            
                             Image(systemName: "mappin.circle")
                                 .frame(width: 100, height: 50)
-                        }/*
-                        else if self.logEvents[i] == EventType.Exited || self.logEvents[i] == EventType.Joined {
+                                .scaleEffect(2)
+                        }
                             
-                            if self.logIcons[i] != "null"{
-                                Image("\(self.logIcons[i])")
+                        
+                        
+                        /*
+                        else if (self.logEvents[i] == EventType.Exited || self.logEvents[i] == EventType.Joined) && self.logIcons[i] != "null"{
+                            Image(self.logIcons[i])
                                 .frame(width: 100, height: 50)
-                            }
-                            else {
-                                Image(systemName: "person.crop.square")
-                                    .frame(width: 100, height: 50)
-                            }
+                        }
+                        else if (self.logEvents[i] == EventType.Exited || self.logEvents[i] == EventType.Joined) && self.logIcons[i] == "null"{
                             
+                            Image(systemName: "person.crop.square")
+                                .frame(width: 100, height: 50)
                         }*/
+                            
+                            
+                        
                         else{
-                            Spacer()
+                            Image(systemName: "person.crop.square")
                                 .frame(width: 100, height: 50)
+                                .scaleEffect(2)
                         }
                         
                         
@@ -297,9 +297,8 @@ func getLogEvents(group: Group) -> [EventType]{
     var logEvents:[EventType] = []
     for event in group.log {
         logEvents.append(event.eventType)
-        print(event.eventType)
     }
-    return logEvents
+    return logEvents.reversed()
 }
 
 func getLogIcons(group: Group) -> [String]{
@@ -308,13 +307,13 @@ func getLogIcons(group: Group) -> [String]{
         if event.icon != nil{
             logIcons.append(event.icon!)
         }
-        else{
+        else if event.icon == nil{
             logIcons.append("null")
         }
         
         
     }
-    return logIcons
+    return logIcons.reversed()
 }
 
 func getLogDescriptions(group: Group) -> [String]{
@@ -322,5 +321,5 @@ func getLogDescriptions(group: Group) -> [String]{
     for event in group.log {
         logDescriptions.append(event.description)
     }
-    return logDescriptions
+    return logDescriptions.reversed()
 }
