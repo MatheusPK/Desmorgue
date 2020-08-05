@@ -23,7 +23,7 @@ struct ContentView: View {
 				VStack(){
 					ZStack{
 						if self.index == 0{
-							Color.black.opacity(0.05).edgesIgnoringSafeArea(.top)
+							Color.white.edgesIgnoringSafeArea(.top)
 							Home()
 						}
 						else if self.index == 1{
@@ -31,11 +31,12 @@ struct ContentView: View {
 							BoardView()
 						}
 						else if self.index == 2{
-							Color.green.edgesIgnoringSafeArea(.top)
+							Color.white.edgesIgnoringSafeArea(.top)
+                            TimelineScollView()
 							
 						}
 						else if self.index == 3{
-							Color.blue.edgesIgnoringSafeArea(.top)
+							Color.white.edgesIgnoringSafeArea(.top)
 						}
 					}
 					.padding(.bottom)
