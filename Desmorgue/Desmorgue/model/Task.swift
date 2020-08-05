@@ -10,18 +10,18 @@ import Foundation
 
 class Task : EventProtocol, TaskProtocol, Codable, ObservableObject{
     var owner:Profile
-    var event: EventType
+    var eventType: EventType
     
-    var icon: String = ""
+    var icon: String = "doc.on.clipboard"
     var title: String
     var description: String
     var deadline: Date
     var date: Date
     
     
-    init(owner: Profile, event: EventType, title: String, description: String, deadline: Date, date: Date){
+    init(owner: Profile, title: String, description: String, deadline: Date, date: Date){
         self.owner = owner
-        self.event = event
+        self.eventType = .Task
         
         self.title = title
         self.description = description
@@ -29,6 +29,6 @@ class Task : EventProtocol, TaskProtocol, Codable, ObservableObject{
         self.date = date
         
         owner.group[owner.currentGroup].timeline.append(self)
-        owner.group[owner.currentGroup].log.append(Event(ownerProfile: owner, event: .Task))
+        owner.group[owner.currentGroup].log.append(Event(ownerProfile: owner, event: .Task, icon: icon))
     }
 }

@@ -12,11 +12,15 @@ import Foundation
 class Profile:Codable, ObservableObject{
     //Variáveis da Classe
     var id:Int = 0
-    var name:String = "User"
+    var name:String
     var email: String = "user@gmail.com"
     var picture: String?
     var group: [Group] = []
     public var currentGroup = 0
 
+    
+    init(name: String){
+        self.name = name
+    }
     
 }

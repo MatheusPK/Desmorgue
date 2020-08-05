@@ -52,7 +52,7 @@ struct AppBar:View {
                 }) {
                     VStack(spacing: 8){
                         HStack(spacing: 12){
-                        Image("bino")
+                        Image(systemName: "exclamationmark.triangle")
                             .foregroundColor(self.index == 0 ? .black: Color.black.opacity(0.7))
                         Text("Avisos")
                             .foregroundColor(self.index == 0 ? .black: Color.black.opacity(0.7))
@@ -69,7 +69,7 @@ struct AppBar:View {
                 }) {
                     VStack(spacing: 8){
                         HStack(spacing: 12){
-                            Image("arquivos")
+                            Image(systemName: "folder")
                                 .foregroundColor(self.index == 1 ? .black: Color.black.opacity(0.7))
                             Text("Arquivos")
                                 .foregroundColor(self.index == 1 ? .black: Color.black.opacity(0.7))
@@ -86,7 +86,7 @@ struct AppBar:View {
                 }) {
                     VStack(spacing: 8){
                         HStack(spacing: 12){
-                            Image("tarefas")
+                            Image(systemName: "doc.on.clipboard")
                                 .foregroundColor(self.index == 2 ? .black: Color.black.opacity(0.7))
                             Text("Tarefas")
                                 .foregroundColor(self.index == 2 ? .black: Color.black.opacity(0.7))

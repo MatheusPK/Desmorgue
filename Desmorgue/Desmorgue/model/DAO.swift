@@ -10,13 +10,16 @@ import Foundation
 
 var dao = (try? DAO.load()) ?? DAO()
 class DAO: Codable, ObservableObject {
-    var userProfile:Profile
+    var profiles:[Profile] = []
+    var userProfile: Profile
     
     fileprivate init(){
-        self.userProfile = Profile()
+        self.userProfile = Profile(name: "User")
+        self.profiles.append(self.userProfile)
         self.groupMock()
-        self.profilesMock(number: 3)
+        self.profilesMock(number: 6)
     }
+    
     
     
     func groupMock(){
@@ -30,9 +33,9 @@ class DAO: Codable, ObservableObject {
         
         
         //MOCK BOARDS
-        let task = Task(owner: self.userProfile, event: .Task,title: "Entender a mecânica do app", description: "Esse é mural de Tarefas. O app funciona com uma página inicial, uma sala de chat, uma página com Murais e uma linha do tempo integrada com esse mural de tarefas, isso tudo para que você consiga se organizar em grupo. Sua tarefa é dar uma explorada e nos dizer o que achou!", deadline: dataDeadline!, date: dataDate!)
-        let file = File(owner: self.userProfile, event: .File, description: "Esse é o mural de arquivos, onde você pode compartilhar arquivos importantes com o seu grupo", link: "Nesse campo entra o link onde o download é disponibilizado", date: dataDate!)
-        let notice = Notice(owner: self.userProfile, event: .Notice, title: "Tarefa nova adicionada! Confere lá", description: "Esse é o mural de avisos! Dê uma olhada também no seu mural de Tarefas.", date: dataDate!)
+        let task = Task(owner: self.userProfile,title: "Entender a mecânica do app", description: "Esse é mural de Tarefas. O app funciona com uma página inicial, uma sala de chat, uma página com Murais e uma linha do tempo integrada com esse mural de tarefas, isso tudo para que você consiga se organizar em grupo. Sua tarefa é dar uma explorada e nos dizer o que achou!", deadline: dataDeadline!, date: dataDate!)
+        let file = File(owner: self.userProfile, description: "Esse é o mural de arquivos, onde você pode compartilhar arquivos importantes com o seu grupo", link: "Nesse campo entra o link onde o download é disponibilizado", date: dataDate!)
+        let notice = Notice(owner: self.userProfile, title: "Tarefa nova adicionada! Confere lá", description: "Esse é o mural de avisos! Dê uma olhada também no seu mural de Tarefas.", date: dataDate!)
         
         
         self.userProfile.group[userProfile.currentGroup].noticeBoard.append(notice)
@@ -43,8 +46,8 @@ class DAO: Codable, ObservableObject {
     
     func profilesMock(number: Int){
         let group = userProfile.group[userProfile.currentGroup]
-        for _ in 0...number{
-            group.members.append(userProfile)
+        for i in 1...number-1{
+            group.members.append(Profile(name: "User \(i + 1)"))
         }
     }
 }

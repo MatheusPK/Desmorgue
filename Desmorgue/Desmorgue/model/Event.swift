@@ -15,26 +15,28 @@ class Event: EventProtocol, Codable, ObservableObject {
     
     //Variáveis do Protocolo
     var owner: Profile
-    var event: EventType
+    var eventType: EventType
     
     //Variáveis da Classe
     var description:String
+    var icon:String
     var associatedObject:Data?
     
-    init(ownerProfile: Profile, event: EventType){
+    init(ownerProfile: Profile, event: EventType, icon: String){
         self.owner = ownerProfile
-        self.event = event
-        self.description = owner.name + self.event.rawValue
+        self.eventType = event
+        self.icon = icon
+        self.description = owner.name + self.eventType.rawValue
     }
     
 }
 
 
 enum EventType : String, Codable{
-    case Joined = "entrou no grupo"
-    case Exited = "saiu do grupo"
-    case Task = "adicionou uma tarefa"
-    case Notice = "adicionou um aviso"
-    case File = "adicionou um arquivo"
-    case TimelineNode = "adicionou um evento na linha do tempo"
+    case Joined = " entrou no grupo"
+    case Exited = " saiu do grupo"
+    case Task = " adicionou uma nova tarefa"
+    case Notice = " adicionou um novo aviso"
+    case File = " adicionou um novo arquivo"
+    case TimelineNode = " adicionou um novo evento na linha do tempo"
 }

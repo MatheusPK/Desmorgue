@@ -10,7 +10,7 @@ import Foundation
 
 protocol EventProtocol {
     var owner:Profile {get set}
-    var event:EventType {get set}
+    var eventType:EventType {get set}
     
 }
 

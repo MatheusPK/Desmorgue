@@ -10,22 +10,22 @@ import Foundation
 
 class Notice : EventProtocol, NoticeProtocol, Codable, ObservableObject {
     var owner:Profile
-    var event: EventType
+    var eventType: EventType
     
-    var icon: String = ""
+    var icon: String = "exclamationmark.triangle"
     var title: String
     var description: String
     var date: Date
     
-    init(owner: Profile, event: EventType,title: String, description: String, date: Date){
+    init(owner: Profile,title: String, description: String, date: Date){
         self.owner = owner
-        self.event = event
+        self.eventType = .Notice
         
         self.title = title
         self.description = description
         self.date = date
         
-        owner.group[owner.currentGroup].log.append(Event(ownerProfile: owner, event: .Notice))
+        owner.group[owner.currentGroup].log.append(Event(ownerProfile: owner, event: .Notice, icon: icon))
     }
     
 }

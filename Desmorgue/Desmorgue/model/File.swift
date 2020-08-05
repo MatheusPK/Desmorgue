@@ -11,21 +11,21 @@ import Foundation
 
 class File : EventProtocol, FileProtocol, Codable, ObservableObject {
     var owner:Profile
-    var event: EventType
+    var eventType: EventType
     
-    var icon: String = ""
+    var icon: String = "folder"
     var description: String
     var link: String
     var date: Date
     
-    init(owner: Profile, event: EventType, description: String, link: String, date: Date){
+    init(owner: Profile, description: String, link: String, date: Date){
         self.owner = owner
-        self.event = event
+        self.eventType = .File
         
         self.description = description
         self.link = link
         self.date = date
         
-        owner.group[owner.currentGroup].log.append(Event(ownerProfile: owner, event: .File))
+        owner.group[owner.currentGroup].log.append(Event(ownerProfile: owner, event: .File, icon: icon))
     }
 }
