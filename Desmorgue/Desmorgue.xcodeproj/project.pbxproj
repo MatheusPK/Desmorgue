@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8B3EEB4424D9D52A00E4915F /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3EEB4324D9D52A00E4915F /* DAO.swift */; };
+		8BF22EDC24DB0DD500A50A2E /* TimelineScollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF22EDB24DB0DD500A50A2E /* TimelineScollView.swift */; };
 		8D4F57CF24CF642000528185 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4F57CE24CF642000528185 /* Extensions.swift */; };
 		8D57E92C24D4AC9800382732 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D57E92B24D4AC9800382732 /* Protocols.swift */; };
 		8D57E92E24D4B04A00382732 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D57E92D24D4B04A00382732 /* Profile.swift */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		8B3EEB4324D9D52A00E4915F /* DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
+		8BF22EDB24DB0DD500A50A2E /* TimelineScollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineScollView.swift; sourceTree = "<group>"; };
 		8D4F57CE24CF642000528185 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8D57E92B24D4AC9800382732 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		8D57E92D24D4B04A00382732 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				8D716B6024D8A82000028DE5 /* BoardView.swift */,
 				8D716B6424D8A86F00028DE5 /* TimelineView.swift */,
 				8D716B6624D8A87E00028DE5 /* ChatView.swift */,
+				8BF22EDB24DB0DD500A50A2E /* TimelineScollView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				BA7A543D24CB4F470099792B /* AppDelegate.swift in Sources */,
 				8DEACCF624D89EBD002BC35F /* Board.swift in Sources */,
 				8D57E93624D4B0D800382732 /* Notice.swift in Sources */,
+				8BF22EDC24DB0DD500A50A2E /* TimelineScollView.swift in Sources */,
 				8DEACCF224D89B61002BC35F /* Group.swift in Sources */,
 				8D4F57CF24CF642000528185 /* Extensions.swift in Sources */,
 				8DD3087A24D9F5EA00E8F073 /* ContentView.swift in Sources */,
