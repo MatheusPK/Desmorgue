@@ -148,8 +148,8 @@ struct Avisos: View {
                     Button(action: {}){
                         ZStack(){
                             Circle()
-                                .foregroundColor(.green)
-                                .opacity(0.6)
+                                .foregroundColor(.pink)
+                                .opacity(0.95)
                                 .frame(width: 50, height: 50)
                                 .shadow(color: .black, radius: 5)
                             
@@ -208,8 +208,8 @@ struct Arquivos: View {
                     Button(action: {}){
                         ZStack(){
                             Circle()
-                                .foregroundColor(.green)
-                                .opacity(0.6)
+                                .foregroundColor(.pink)
+                                .opacity(0.95)
                                 .frame(width: 50, height: 50)
                                 .shadow(color: .black, radius: 5)
                             
@@ -257,13 +257,14 @@ struct Tarefas: View {
                                     Spacer()
                                     
                                     HStack(){
-                                        Spacer()
                                         
                                         Text(task.getDeadline())
                                             .frame(width: 90, height: 30)
-                                            .padding(.trailing, 20)
+                                            .padding(.leading, 20)
                                             .padding(.bottom, 20)
                                             .foregroundColor(.black)
+                                        
+                                            Spacer()
                                     }
                                 }
                                 
@@ -286,8 +287,8 @@ struct Tarefas: View {
                     Button(action: {}){
                         ZStack(){
                             Circle()
-                                .foregroundColor(.green)
-                                .opacity(0.6)
+                                .foregroundColor(.pink)
+                                .opacity(0.95)
                                 .frame(width: 50, height: 50)
                                 .shadow(color: .black, radius: 5)
                             
