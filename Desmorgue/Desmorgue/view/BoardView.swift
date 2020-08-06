@@ -31,10 +31,10 @@ struct BoardView:View {
                 Avisos()
             }
             else if self.index==1{
-                Tarefas()
+                Arquivos()
             }
             else if self.index==2{
-                Arquivos()
+                Tarefas()
             }
         }
     }
@@ -104,16 +104,11 @@ struct AppBar:View {
 }
 struct Avisos: View {
     static var group = dao.userProfile.group[dao.userProfile.currentGroup]
-    var notices = group.noticeBoard
-    var noticesTitles = getNoticesTitles(group: group)
-    var noticesCount = group.noticeBoard.count
-    
+    @State var notices = group.noticeBoard
     var body: some View{
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing:0){
-                
-                ForEach(0...(self.noticesCount-1),id: \.self){i in
-                    
+                ForEach(notices, id: \.self) { notice in
                     Button(action: {}){
                         ZStack(){
                             Rectangle()
@@ -124,7 +119,7 @@ struct Avisos: View {
                             .foregroundColor(.green)
                             .opacity(0.6)
                             
-                            Text(self.noticesTitles[i])
+                            Text(notice.title)
                                 .font(.system(size: 25))
                                 .foregroundColor(.black)
                                 .padding(.horizontal, 15)
@@ -136,23 +131,60 @@ struct Avisos: View {
     }
 }
 struct Arquivos: View {
+    static var group = dao.userProfile.group[dao.userProfile.currentGroup]
+    @State var files = group.fileBoard
+    
     var body: some View{
-        GeometryReader{ _ in
-                   VStack{
-                       Text("oi")
-                   }
-               }
-               .background(Color.white)
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(spacing:0){
+                ForEach(files, id: \.self) { file in
+                    Button(action: {}){
+                        ZStack(){
+                            Rectangle()
+                            .frame(height: 160)
+                            .cornerRadius(15)
+                            .padding(.vertical, 15)
+                            .padding(.horizontal, 15)
+                            .foregroundColor(.green)
+                            .opacity(0.6)
+                             
+                            Text(file.description)
+                                .font(.system(size: 25))
+                                .foregroundColor(.black)
+                                .padding(.horizontal, 15)
+                        }
+                    }
+                }
+            }
+        }.padding(.bottom, 18)
     }
 }
 struct Tarefas: View {
+    static var group = dao.userProfile.group[dao.userProfile.currentGroup]
+    @State var tasks = group.taskBoard
     var body: some View{
-        GeometryReader{ _ in
-                   VStack{
-                       Text("coe")
-                   }
-               }
-               .background(Color.white)
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(spacing:0){
+                ForEach(tasks, id: \.self) { task in
+                    Button(action: {}){
+                        ZStack(){
+                            Rectangle()
+                            .frame(height: 160)
+                            .cornerRadius(15)
+                            .padding(.vertical, 15)
+                            .padding(.horizontal, 15)
+                            .foregroundColor(.green)
+                            .opacity(0.6)
+                            
+                            Text(task.title)
+                                .font(.system(size: 25))
+                                .foregroundColor(.black)
+                                .padding(.horizontal, 15)
+                        }
+                    }
+                }
+            }
+        }.padding(.bottom, 18)
     }
 }
 

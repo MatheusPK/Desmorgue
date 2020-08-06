@@ -58,11 +58,11 @@ class DAO: Codable, ObservableObject {
     func tasksMock() {
         let data = DateFormatter()
         data.dateFormat = "dd/MM/yyyy"
-        let datas:[String] = ["01/07/2018", "25/06/2020", "17/09/2020", "25/10/2020"]
+        let datas:[String] = ["01/07/2018", "25/06/2020", "17/09/2020", "25/10/2020","25/10/2020","25/10/2020","25/10/2020","25/10/2020"]
         let dataDate = data.date(from: "01/01/2020")
-        for i in 0...3{
-            let dataDeadline = data.date(from: datas[i])
-            let task = Task(owner: self.userProfile,title: "Tarefa \(i)", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed enim ut sem viverra aliquet eget sit amet. Semper feugiat nibh sed pulvinar proin. Pharetra et ultrices neque ornare aenean euismod elementum nisi quis. ", deadline: dataDeadline!, date: dataDate!)
+        for dataV in datas {
+            let dataDeadline = data.date(from: dataV)
+            let task = Task(owner: self.userProfile,title: "Tarefa \(dataV)", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed enim ut sem viverra aliquet eget sit amet. Semper feugiat nibh sed pulvinar proin. Pharetra et ultrices neque ornare aenean euismod elementum nisi quis. ", deadline: dataDeadline!, date: dataDate!)
             userProfile.group[userProfile.currentGroup].taskBoard.append(task)
         }
     }

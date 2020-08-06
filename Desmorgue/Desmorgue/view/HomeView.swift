@@ -29,7 +29,6 @@ struct Home:View {
     
     
     var body: some View{
-        ScrollView(.vertical){
             VStack(){
                 HomeTop()
                 
@@ -48,7 +47,6 @@ struct Home:View {
                 
                 HomeLog()
             }
-        }
     }
 }
 
@@ -153,6 +151,8 @@ struct HomeGoal:View {
     
     var body: some View{
         
+        
+        
         VStack(spacing: 0){
             
             HStack(){
@@ -205,63 +205,66 @@ struct HomeLog:View {
     
     
     var body: some View{
-        VStack(spacing: 0){
-            HStack(){
-                
-                Text("Atividades Recentes:")
-                    .padding(.trailing)
-                    .font(.system(size: 25))
+            VStack(spacing: 0){
+                HStack(){
+                    
+                    Text("Atividades Recentes:")
+                        .padding(.trailing)
+                        .font(.system(size: 25))
+                    
+                    Spacer()
+                    
+                }.padding(.leading, 10)
                 
                 Spacer()
+                    .frame(height: 15)
                 
-            }.padding(.leading, 10)
-            
-            Spacer()
-                .frame(height: 15)
-            
-            VStack(spacing: 15){
+                ScrollView(.vertical) {
                 
-                ForEach(0...(self.logCount-1), id: \.self) {i in
-                    HStack(spacing: 15){
-                        
-                        if self.logEvents[i] == EventType.File || self.logEvents[i] == EventType.Task || self.logEvents[i] == EventType.Notice {
+                VStack(spacing: 15){
+                    
+                    ForEach(0...(self.logCount-1), id: \.self) {i in
+                        HStack(spacing: 15){
                             
-                            Image(systemName: self.logIcons[i])
-                                .frame(width: 100, height: 50)
-                                .scaleEffect(2)
+                            if self.logEvents[i] == EventType.File || self.logEvents[i] == EventType.Task || self.logEvents[i] == EventType.Notice {
+                                
+                                Image(systemName: self.logIcons[i])
+                                    .frame(width: 100, height: 50)
+                                    .scaleEffect(2)
+                            }
+                            else if self.logEvents[i] == EventType.TimelineNode{
+                                
+                                Image(systemName: "mappin.circle")
+                                    .frame(width: 100, height: 50)
+                                    .scaleEffect(2)
+                            }
+                                
+                                
+                                
+                                /*
+                                 else if (self.logEvents[i] == EventType.Exited || self.logEvents[i] == EventType.Joined) && self.logIcons[i] != "null"{
+                                 Image(self.logIcons[i])
+                                 .frame(width: 100, height: 50)
+                                 }
+                                 else if (self.logEvents[i] == EventType.Exited || self.logEvents[i] == EventType.Joined) && self.logIcons[i] == "null"{
+                                 
+                                 Image(systemName: "person.crop.square")
+                                 .frame(width: 100, height: 50)
+                                 }*/
+                                
+                                
+                                
+                            else{
+                                Image(systemName: "person.crop.square")
+                                    .frame(width: 100, height: 50)
+                                    .scaleEffect(2)
+                            }
+                            
+                            
+                            Text("\(self.logDescriptions[i])")
+                            
+                            Spacer()
                         }
-                        else if self.logEvents[i] == EventType.TimelineNode{
-                            
-                            Image(systemName: "mappin.circle")
-                                .frame(width: 100, height: 50)
-                                .scaleEffect(2)
-                        }
-                            
-                        
-                        
-                        /*
-                        else if (self.logEvents[i] == EventType.Exited || self.logEvents[i] == EventType.Joined) && self.logIcons[i] != "null"{
-                            Image(self.logIcons[i])
-                                .frame(width: 100, height: 50)
-                        }
-                        else if (self.logEvents[i] == EventType.Exited || self.logEvents[i] == EventType.Joined) && self.logIcons[i] == "null"{
-                            
-                            Image(systemName: "person.crop.square")
-                                .frame(width: 100, height: 50)
-                        }*/
-                            
-                            
-                        
-                        else{
-                            Image(systemName: "person.crop.square")
-                                .frame(width: 100, height: 50)
-                                .scaleEffect(2)
-                        }
-                        
-                        
-                        Text("\(self.logDescriptions[i])")
-                        
-                        Spacer()
                     }
                 }
             }

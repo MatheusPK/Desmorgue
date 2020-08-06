@@ -8,7 +8,9 @@
 
 import Foundation
 
-class Notice : EventProtocol, NoticeProtocol, Codable, ObservableObject {
+class Notice : EventProtocol, NoticeProtocol, Codable, ObservableObject, Hashable {
+
+    private var id = UUID()
     var owner:Profile
     var eventType: EventType
     
@@ -26,6 +28,14 @@ class Notice : EventProtocol, NoticeProtocol, Codable, ObservableObject {
         self.date = date
         
         owner.group[owner.currentGroup].log.append(Event(ownerProfile: owner, event: .Notice, icon: icon))
+    }
+    
+    static func == (lhs: Notice, rhs: Notice) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
     }
     
 }

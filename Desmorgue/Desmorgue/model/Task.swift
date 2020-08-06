@@ -8,7 +8,12 @@
 
 import Foundation
 
-class Task : EventProtocol, TaskProtocol, Codable, ObservableObject{
+class Task : EventProtocol, TaskProtocol, Codable, ObservableObject, Hashable{
+
+    
+    
+    private var id = UUID()
+    
     var owner:Profile
     var eventType: EventType
     
@@ -30,5 +35,16 @@ class Task : EventProtocol, TaskProtocol, Codable, ObservableObject{
         
         owner.group[owner.currentGroup].timeline.append(self)
         owner.group[owner.currentGroup].log.append(Event(ownerProfile: owner, event: .Task, icon: icon))
+        
+
+
+    }
+    
+    static func == (lhs: Task, rhs: Task) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
     }
 }

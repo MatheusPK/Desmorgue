@@ -9,7 +9,9 @@
 import Foundation
 
 
-class File : EventProtocol, FileProtocol, Codable, ObservableObject {
+class File : EventProtocol, FileProtocol, Codable, ObservableObject, Hashable {
+    
+    private var id = UUID()
     var owner:Profile
     var eventType: EventType
     
@@ -28,4 +30,13 @@ class File : EventProtocol, FileProtocol, Codable, ObservableObject {
         
         owner.group[owner.currentGroup].log.append(Event(ownerProfile: owner, event: .File, icon: icon))
     }
+    
+    static func == (lhs: File, rhs: File) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
+    }
+
 }
