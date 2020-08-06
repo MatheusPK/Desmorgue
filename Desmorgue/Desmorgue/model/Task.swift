@@ -47,4 +47,12 @@ class Task : EventProtocol, TaskProtocol, Codable, ObservableObject, Hashable{
     func hash(into hasher: inout Hasher) {
         hasher.combine(self.id)
     }
+    
+    public func getDeadline () ->String{
+        let deadline = Array(String("\(self.deadline)"))[0...9]
+        let day = String(deadline[8...9])
+        let month = String(deadline[5...6])
+        let year = String(deadline[2...3])
+        return String(day + "/" + month + "/" + year)
+    }
 }

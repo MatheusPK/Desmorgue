@@ -18,8 +18,11 @@ struct TimelineScollView: View {
     var taskCount = tasks.count
     var now = Date()
     var body: some View {
-        VStack(alignment: .leading, spacing: 15) {
+        VStack(alignment: .leading, spacing: 0) {
+            
             TimelineTop()
+            
+            
             TimelineBar(index: self.$index, offset: self.$offset)
             //Divider()
             ScrollView(.vertical, showsIndicators: false) {
@@ -181,11 +184,11 @@ struct TimelineTop:View {
     var group = dao.userProfile.group[dao.userProfile.currentGroup]
     
     var body: some View{
-        ZStack() {
-//            Rectangle()
-//                .foregroundColor(.gray).opacity(0.40)
-//                .edgesIgnoringSafeArea(.top)
-//                .frame(height: 50)
+        ZStack(){
+            Rectangle()
+                .foregroundColor(.init(UIColor.systemGray5))
+                .edgesIgnoringSafeArea(.top)
+                .shadow(color: .black, radius: 0.5)
             
             HStack(){
                 if group.picture != ""{
@@ -196,9 +199,9 @@ struct TimelineTop:View {
                 }
                 else{
                     Button(action: {ContentView().isMenuActive = true}){
-                        Image(systemName: "ellipsis.circle")
+                        Image(systemName: "line.horizontal.3")
                             .frame(width: 50, height: 50, alignment: .center)
-                            .foregroundColor(.black)
+                            .foregroundColor(.pink)
                             .scaleEffect(2)
                     }
                 }
@@ -213,11 +216,11 @@ struct TimelineTop:View {
                 Button(action: {ContentView().profilePage = true}){
                     Image(systemName: "person.circle")
                         .frame(width: 50, height: 50, alignment: .center)
-                        .foregroundColor(.black)
+                        .foregroundColor(.pink)
                         .scaleEffect(2)
                 }
             }.padding(.horizontal, 15)
-        }
+        }.frame(height: 50)
         
     }
 }

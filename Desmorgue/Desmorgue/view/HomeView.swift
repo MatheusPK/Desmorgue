@@ -33,7 +33,7 @@ struct Home:View {
                 HomeTop()
                 
                 Spacer()
-                    .frame(height: sectionSpacer + 5)
+                    .frame(height: sectionSpacer - 10)
                 
                 HomeMembers()
                 
@@ -57,45 +57,50 @@ struct HomeTop:View {
     var group = dao.userProfile.group[dao.userProfile.currentGroup]
     
     var body: some View{
-        HStack(){
-            if group.picture != ""{
-                Button(action: { ContentView().isMenuActive = true}){
-                    Image(group.picture)
-                        .frame(width: 50, height: 50, alignment: .center)
+        ZStack(){
+            Rectangle()
+                .foregroundColor(.init(UIColor.systemGray5))
+                .edgesIgnoringSafeArea(.top)
+                .shadow(color: .black, radius: 0.5)
+            
+            HStack(){
+                if group.picture != ""{
+                    Button(action: { ContentView().isMenuActive = true}){
+                        Image(group.picture)
+                            .frame(width: 50, height: 50, alignment: .center)
+                    }
                 }
-            }
-            else{
-                Button(action: {ContentView().isMenuActive = true}){
-                    Image(systemName: "ellipsis.circle")
+                else{
+                    Button(action: {ContentView().isMenuActive = true}){
+                        Image(systemName: "line.horizontal.3")
+                            .frame(width: 50, height: 50, alignment: .center)
+                            .foregroundColor(.pink)
+                            .scaleEffect(2)
+                    }
+                }
+                
+                Spacer()
+                
+                Text(group.name)
+                    .font(.system(size: 30))
+                
+                Spacer()
+                
+                Button(action: {ContentView().profilePage = true}){
+                    Image(systemName: "person.circle")
                         .frame(width: 50, height: 50, alignment: .center)
-                        .foregroundColor(.black)
+                        .foregroundColor(.pink)
                         .scaleEffect(2)
                 }
-            }
-            
-            Spacer()
-            
-            Text(group.name)
-                .font(.system(size: 30))
-            
-            Spacer()
-            
-            Button(action: {ContentView().profilePage = true}){
-                Image(systemName: "person.circle")
-                    .frame(width: 50, height: 50, alignment: .center)
-                    .foregroundColor(.black)
-                    .scaleEffect(2)
-            }
-        }.padding(.horizontal, 15)
+            }.padding(.horizontal, 15)
+        }.frame(height: 50)
     }
 }
 
 
 struct HomeMembers:View {
     static var group = dao.userProfile.group[dao.userProfile.currentGroup]
-    var membersPictures:[String] = getPictures(group: group)
-    var membersNames = getNames(group: group)
-    var membersCount = group.members.count
+    @State var members = group.members
     
     
     
@@ -114,18 +119,20 @@ struct HomeMembers:View {
                 ScrollView(.horizontal, showsIndicators: false){
                     
                     HStack(spacing: 20){
-                        ForEach(0...(membersCount-1), id: \.self) {i in
+                        ForEach(0...(members.count-1), id: \.self) {i in
                             VStack(spacing: 0){
-                                    if self.membersPictures[i] != "null"{
-                                        Image("\(self.membersPictures[i])")
+                                if self.members[i].picture != nil{
+                                    Image("\(String(describing: self.members[i].picture))")
                                             .frame(width: 50, height: 50)
                                     }
                                     else{
-                                        Circle()
+                                        Image(systemName: "person.crop.square")
                                             .frame(width: 50, height: 50)
-                                            .foregroundColor(.pink)
+                                            .foregroundColor(.blue)
+                                            .scaleEffect(2.5)
+                                            .opacity(0.7)
                                     }
-                                Text("\(self.membersNames[i])")
+                                Text("\(self.members[i].name)")
                                     .font(.system(size: 16))
                             }
                         }
@@ -157,7 +164,7 @@ struct HomeGoal:View {
             
             HStack(){
                 
-                Text("Objetivos do Grupo:")
+                Text("Objetivo do Grupo:")
                     .padding(.trailing)
                     .font(.system(size: 25))
                 
@@ -173,6 +180,7 @@ struct HomeGoal:View {
                     .cornerRadius(40)
                     .foregroundColor(.black)
                     .padding(.horizontal, 15)
+                    .frame(height: 100)
                 
                 Rectangle()
                     .cornerRadius(38)
@@ -180,11 +188,11 @@ struct HomeGoal:View {
                     .padding(.horizontal, 15)
                     .padding(.vertical, 2)
                     .padding(.horizontal, 2)
+                    .frame(height: 100)
                 
                 Text("\(HomeGoal.group.goal)")
                     .padding(.horizontal, 30)
                     .padding(.vertical, 15)
-                    .font(.system(size: 20))
                     .multilineTextAlignment(.leading)
                 
                 
@@ -198,11 +206,7 @@ struct HomeGoal:View {
 
 struct HomeLog:View {
     static var group = dao.userProfile.group[dao.userProfile.currentGroup]
-    var logEvents = getLogEvents(group: group)
-    var logIcons = getLogIcons(group: group)
-    var logDescriptions = getLogDescriptions(group: group)
-    var logCount = group.log.count
-    
+    @State var log = group.log//.reversed()
     
     var body: some View{
             VStack(spacing: 0){
@@ -223,20 +227,22 @@ struct HomeLog:View {
                 
                 VStack(spacing: 15){
                     
-                    ForEach(0...(self.logCount-1), id: \.self) {i in
-                        HStack(spacing: 15){
+                    ForEach(0...(self.log.count-1), id: \.self) {i in
+                        HStack(spacing: 5){
                             
-                            if self.logEvents[i] == EventType.File || self.logEvents[i] == EventType.Task || self.logEvents[i] == EventType.Notice {
+                            if self.log[i].eventType == EventType.File || self.log[i].eventType == EventType.Task || self.log[i].eventType == EventType.Notice {
                                 
-                                Image(systemName: self.logIcons[i])
-                                    .frame(width: 100, height: 50)
+                                Image(systemName: self.log[i].icon!)
+                                    .frame(width: 50, height: 50)
                                     .scaleEffect(2)
+                                    .padding(.leading)
                             }
-                            else if self.logEvents[i] == EventType.TimelineNode{
+                            else if self.log[i].eventType == EventType.TimelineNode{
                                 
-                                Image(systemName: "mappin.circle")
-                                    .frame(width: 100, height: 50)
+                                Image(systemName: "calendar")
+                                    .frame(width: 50, height: 50)
                                     .scaleEffect(2)
+                                    .padding(.leading)
                             }
                                 
                                 
@@ -245,23 +251,26 @@ struct HomeLog:View {
                                  else if (self.logEvents[i] == EventType.Exited || self.logEvents[i] == EventType.Joined) && self.logIcons[i] != "null"{
                                  Image(self.logIcons[i])
                                  .frame(width: 100, height: 50)
+                                 .padding(.leading)
                                  }
                                  else if (self.logEvents[i] == EventType.Exited || self.logEvents[i] == EventType.Joined) && self.logIcons[i] == "null"{
                                  
                                  Image(systemName: "person.crop.square")
                                  .frame(width: 100, height: 50)
+                                 .padding(.leading)
                                  }*/
                                 
                                 
                                 
                             else{
                                 Image(systemName: "person.crop.square")
-                                    .frame(width: 100, height: 50)
+                                    .frame(width: 50, height: 50)
                                     .scaleEffect(2)
+                                    .padding(.leading)
                             }
                             
                             
-                            Text("\(self.logDescriptions[i])")
+                            Text("\(self.log[i].description)")
                             
                             Spacer()
                         }

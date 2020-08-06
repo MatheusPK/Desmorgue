@@ -9,9 +9,12 @@
 import Foundation
 
 
-class Profile:Codable, ObservableObject{
+class Profile:Codable, ObservableObject, Hashable{
+    //Variáveis de Protocolo
+    private var id = UUID()
+    
     //Variáveis da Classe
-    var id:Int = 0
+    var userId:Int = 0
     var name:String
     var email: String = "user@gmail.com"
     var picture: String?
@@ -21,6 +24,14 @@ class Profile:Codable, ObservableObject{
     
     init(name: String){
         self.name = name
+    }
+    
+    static func == (lhs: Profile, rhs: Profile) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
     }
     
 }

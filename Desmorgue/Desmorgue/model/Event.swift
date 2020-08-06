@@ -11,11 +11,12 @@ import Foundation
 
 
 
-class Event: EventProtocol, Codable, ObservableObject {
+class Event: EventProtocol, Codable, ObservableObject, Hashable {
     
     //Variáveis do Protocolo
     var owner: Profile
     var eventType: EventType
+    private var id = UUID()
     
     //Variáveis da Classe
     var description:String
@@ -32,6 +33,14 @@ class Event: EventProtocol, Codable, ObservableObject {
             self.icon = nil
         }
         self.description = owner.name + self.eventType.rawValue
+    }
+    
+    static func == (lhs: Event, rhs: Event) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
     }
     
 }

@@ -35,14 +35,18 @@ class DAO: Codable, ObservableObject {
         self.profilesMock(number: 6)
         
         //MOCK BOARDS
+        let noticeEncontro = Notice(owner: self.userProfile, title: "Encontro Quinta 19:00", description: "Marcamos nosso encontro pra essa quinta 19:00. Vamos decidir nossos horários e como preferios seguir co o grupo", date: dataDate!)
         let task = Task(owner: self.userProfile,title: "Entender a mecânica do app", description: "Esse é mural de Tarefas. O app funciona com uma página inicial, uma sala de chat, uma página com Murais e uma linha do tempo integrada com esse mural de tarefas, isso tudo para que você consiga se organizar em grupo. Sua tarefa é dar uma explorada e nos dizer o que achou!", deadline: dataDeadline!, date: dataDate!)
         let file = File(owner: self.userProfile, description: "Esse é o mural de arquivos, onde você pode compartilhar arquivos importantes com o seu grupo", link: "Nesse campo entra o link onde o download é disponibilizado", date: dataDate!)
         let notice = Notice(owner: self.userProfile, title: "Tarefa nova adicionada! Confere lá", description: "Esse é o mural de avisos! Dê uma olhada também no seu mural de Tarefas.", date: dataDate!)
         
         
+        
         self.userProfile.group[userProfile.currentGroup].noticeBoard.append(notice)
+        self.userProfile.group[userProfile.currentGroup].noticeBoard.append(noticeEncontro)
         self.userProfile.group[userProfile.currentGroup].taskBoard.append(task)
         self.userProfile.group[userProfile.currentGroup].fileBoard.append(file)
+        
 
     }
     
@@ -62,7 +66,7 @@ class DAO: Codable, ObservableObject {
         let dataDate = data.date(from: "01/01/2020")
         for dataV in datas {
             let dataDeadline = data.date(from: dataV)
-            let task = Task(owner: self.userProfile,title: "Tarefa \(dataV)", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed enim ut sem viverra aliquet eget sit amet. Semper feugiat nibh sed pulvinar proin. Pharetra et ultrices neque ornare aenean euismod elementum nisi quis. ", deadline: dataDeadline!, date: dataDate!)
+            let task = Task(owner: self.userProfile,title: "Tarefa", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed enim ut sem viverra aliquet eget sit amet. Semper feugiat nibh sed pulvinar proin. Pharetra et ultrices neque ornare aenean euismod elementum nisi quis. ", deadline: dataDeadline!, date: dataDate!)
             userProfile.group[userProfile.currentGroup].taskBoard.append(task)
         }
     }

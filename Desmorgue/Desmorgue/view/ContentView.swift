@@ -20,7 +20,7 @@ struct ContentView: View {
     var body: some View {
 		ZStack{
 			if !profilePage {
-				VStack(){
+                VStack(spacing: 0){
 					ZStack{
 						if self.index == 0{
 							Color.white.edgesIgnoringSafeArea(.top)
@@ -37,9 +37,10 @@ struct ContentView: View {
 						}
 						else if self.index == 3{
 							Color.white.edgesIgnoringSafeArea(.top)
+                            Chat()
 						}
 					}
-					.padding(.bottom)
+                    
 					CustomTabs(index: self.$index)
 				}
 			}
@@ -59,49 +60,61 @@ struct ContentView_Previews: PreviewProvider {
 struct CustomTabs: View {
     @Binding var index:Int
     var body: some View{
-        HStack{
-            Button(action: {
-                self.index = 0
-            }) {
-                Image("home")
-            }
-            .foregroundColor(Color.black.opacity(self.index == 0 ? 1:0.2))
-			
-			
-            Spacer(minLength: 0)
-			
-			
-            Button(action: {
-                self.index = 1
-            }) {
-                Image("mural")
-            }
-            .foregroundColor(Color.black.opacity(self.index == 1 ? 1:0.2))
-			
-			
-            Spacer(minLength: 0)
-			
-			
-            Button(action: {
-                self.index = 2
-            }) {
-                Image("timeline")
-            }
-            .foregroundColor(Color.black.opacity(self.index == 2 ? 1:0.2))
-			
-			
-            Spacer(minLength: 0)
-			
-			
-            Button(action: {
-                self.index = 3
-            }) {
-                Image("chat")
-            }
-            .foregroundColor(Color.black.opacity(self.index == 3 ? 1:0.2))
+        ZStack(){
+            Rectangle()
+                .edgesIgnoringSafeArea(.bottom)
+                .frame(height: 50)
+                .foregroundColor(.init(UIColor.systemGray5))
+                .shadow(color: .black, radius: 1)
             
+            HStack{
+                Button(action: {
+                    self.index = 0
+                }) {
+                    Image(systemName: "house.fill")
+                    .scaleEffect(1.5)
+                }
+                .foregroundColor(Color.pink.opacity(self.index == 0 ? 1:0.4))
+                
+                
+                Spacer(minLength: 0)
+                
+                
+                Button(action: {
+                    self.index = 1
+                }) {
+                    Image(systemName: "rectangle.3.offgrid.fill")
+                    .scaleEffect(1.5)
+                }
+                .foregroundColor(Color.pink.opacity(self.index == 1 ? 1:0.4))
+                
+                
+                Spacer(minLength: 0)
+                
+                
+                Button(action: {
+                    self.index = 2
+                }) {
+                    Image(systemName: "calendar")
+                    .scaleEffect(1.5)
+                }
+                .foregroundColor(Color.pink.opacity(self.index == 2 ? 1:0.4))
+                
+                
+                Spacer(minLength: 0)
+                
+                
+                Button(action: {
+                    self.index = 3
+                }) {
+                    Image(systemName: "message.fill")
+                        .scaleEffect(1.5)
+                }
+                .foregroundColor(Color.pink.opacity(self.index == 3 ? 1:0.4))
+                
+            }
+            .padding(.horizontal, 40)
         }
-        .padding(.horizontal, 40)
         
     }
 }
