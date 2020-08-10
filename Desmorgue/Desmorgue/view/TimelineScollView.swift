@@ -22,6 +22,8 @@ struct TimelineScollView: View {
             
             TimelineTop()
             
+            Spacer()
+            
             
             TimelineBar(index: self.$index, offset: self.$offset)
             //Divider()
