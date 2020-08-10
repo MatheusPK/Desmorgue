@@ -83,7 +83,7 @@ class DAO: Codable, ObservableObject {
     }
     
     func impre3D() {
-        var grupo = Group(name: "Impressão 3D", goal: "Construir raquete de tenis 3d", owner: self.userProfile)
+        let grupo = Group(name: "Impressão 3D", goal: "Construir raquete de tenis 3d", owner: self.userProfile)
         self.userProfile.group.append(grupo)
         self.profilesMock()
         
