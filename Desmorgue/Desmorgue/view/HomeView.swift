@@ -122,7 +122,7 @@ struct HomeMembers:View {
                         ForEach(0...(members.count-1), id: \.self) {i in
                             VStack(spacing: 0){
                                 if self.members[i].picture != nil{
-                                    Image("\(String(describing: self.members[i].picture))")
+                                    Image(self.members[i].picture!).resizable()
                                             .frame(width: 50, height: 50)
                                     }
                                     else{

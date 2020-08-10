@@ -24,7 +24,7 @@ class Task : EventProtocol, TaskProtocol, Codable, ObservableObject, Hashable{
     var date: Date
     
     
-    init(owner: Profile, title: String, description: String, deadline: Date, date: Date){
+    init(owner: Profile, title: String, description: String, deadline: Date, date: Date, group: Group){
         self.owner = owner
         self.eventType = .Task
         
@@ -33,8 +33,8 @@ class Task : EventProtocol, TaskProtocol, Codable, ObservableObject, Hashable{
         self.deadline = deadline
         self.date = date
         
-        owner.group[owner.currentGroup].timeline.append(self)
-        owner.group[owner.currentGroup].log.append(Event(ownerProfile: owner, event: .Task, icon: icon))
+        group.timeline.append(self)
+        group.log.append(Event(ownerProfile: owner, event: .Task, icon: icon))
         
 
 

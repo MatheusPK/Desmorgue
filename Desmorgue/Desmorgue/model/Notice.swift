@@ -19,7 +19,7 @@ class Notice : EventProtocol, NoticeProtocol, Codable, ObservableObject, Hashabl
     var description: String
     var date: Date
     
-    init(owner: Profile,title: String, description: String, date: Date){
+    init(owner: Profile,title: String, description: String, date: Date, group: Group){
         self.owner = owner
         self.eventType = .Notice
         
@@ -27,7 +27,7 @@ class Notice : EventProtocol, NoticeProtocol, Codable, ObservableObject, Hashabl
         self.description = description
         self.date = date
         
-        owner.group[owner.currentGroup].log.append(Event(ownerProfile: owner, event: .Notice, icon: icon))
+        group.log.append(Event(ownerProfile: owner, event: .Notice, icon: icon))
     }
     
     static func == (lhs: Notice, rhs: Notice) -> Bool {

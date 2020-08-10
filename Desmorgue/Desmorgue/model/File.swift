@@ -20,7 +20,7 @@ class File : EventProtocol, FileProtocol, Codable, ObservableObject, Hashable {
     var link: String
     var date: Date
     
-    init(owner: Profile, description: String, link: String, date: Date){
+    init(owner: Profile, description: String, link: String, date: Date, group: Group){
         self.owner = owner
         self.eventType = .File
         
@@ -28,7 +28,7 @@ class File : EventProtocol, FileProtocol, Codable, ObservableObject, Hashable {
         self.link = link
         self.date = date
         
-        owner.group[owner.currentGroup].log.append(Event(ownerProfile: owner, event: .File, icon: icon))
+        group.log.append(Event(ownerProfile: owner, event: .File, icon: icon))
     }
     
     static func == (lhs: File, rhs: File) -> Bool {
