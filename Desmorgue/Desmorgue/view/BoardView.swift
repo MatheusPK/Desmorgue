@@ -129,7 +129,7 @@ struct Avisos: View {
                                 Text(notice.title)
                                     .font(.system(size: 25))
                                     .foregroundColor(.black)
-                                    .padding(.horizontal, 15)
+                                    .padding(.horizontal, 30)
                             }
                         }
                     }           }
@@ -186,7 +186,7 @@ struct Arquivos: View {
                                 Text(file.description)
                                     .font(.system(size: 25))
                                     .foregroundColor(.black)
-                                    .padding(.horizontal, 15)
+                                    .padding(.horizontal, 30)
                                 
                                 
                             }
@@ -251,7 +251,7 @@ struct Tarefas: View {
                                 Text(task.title)
                                     .font(.system(size: 25))
                                     .foregroundColor(.black)
-                                    .padding(.horizontal, 15)
+                                    .padding(.horizontal, 30)
                                 
                                 VStack(){
                                     Spacer()
