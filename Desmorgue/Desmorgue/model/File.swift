@@ -28,7 +28,7 @@ class File : EventProtocol, FileProtocol, Codable, ObservableObject, Hashable {
         self.link = link
         self.date = date
         
-        group.log.append(Event(ownerProfile: owner, event: .File, icon: icon))
+        group.log.insert(Event(ownerProfile: owner, event: .File, icon: icon), at: 0)
     }
     
     static func == (lhs: File, rhs: File) -> Bool {

@@ -60,13 +60,13 @@ class DAO: Codable, ObservableObject {
         prof4.picture = "salles"
         
         group.members.append(prof2)
-        group.log.append(Event(ownerProfile: prof2, event: .Joined, icon: prof2.picture))
+        group.log.insert(Event(ownerProfile: prof2, event: .Joined, icon: prof2.picture), at: 0)
         
         group.members.append(prof3)
-        group.log.append(Event(ownerProfile: prof3, event: .Joined, icon: prof3.picture))
+        group.log.insert(Event(ownerProfile: prof3, event: .Joined, icon: prof3.picture), at: 0)
         
         group.members.append(prof4)
-        group.log.append(Event(ownerProfile: prof4, event: .Joined, icon: prof4.picture))
+        group.log.insert(Event(ownerProfile: prof4, event: .Joined, icon: prof4.picture), at: 0)
 
     }
     

@@ -34,7 +34,7 @@ class Task : EventProtocol, TaskProtocol, Codable, ObservableObject, Hashable{
         self.date = date
         
         group.timeline.append(self)
-        group.log.append(Event(ownerProfile: owner, event: .Task, icon: icon))
+        group.log.insert(Event(ownerProfile: owner, event: .Task, icon: icon), at: 0)
         
 
 

@@ -27,7 +27,7 @@ class Notice : EventProtocol, NoticeProtocol, Codable, ObservableObject, Hashabl
         self.description = description
         self.date = date
         
-        group.log.append(Event(ownerProfile: owner, event: .Notice, icon: icon))
+        group.log.insert(Event(ownerProfile: owner, event: .Notice, icon: icon), at: 0)
     }
     
     static func == (lhs: Notice, rhs: Notice) -> Bool {

@@ -122,8 +122,10 @@ struct HomeMembers:View {
                         ForEach(0...(members.count-1), id: \.self) {i in
                             VStack(spacing: 0){
                                 if self.members[i].picture != nil{
-                                    Image(self.members[i].picture!).resizable()
-                                            .frame(width: 50, height: 50)
+                                    Image(self.members[i].picture!)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 50, height: 50)
                                     }
                                     else{
                                         Image(systemName: "person.crop.square")
@@ -180,7 +182,7 @@ struct HomeGoal:View {
                     .cornerRadius(40)
                     .foregroundColor(.black)
                     .padding(.horizontal, 15)
-                    .frame(height: 100)
+                    .frame(height: 60)
                 
                 Rectangle()
                     .cornerRadius(38)
@@ -188,7 +190,7 @@ struct HomeGoal:View {
                     .padding(.horizontal, 15)
                     .padding(.vertical, 2)
                     .padding(.horizontal, 2)
-                    .frame(height: 100)
+                    .frame(height: 60)
                 
                 Text("\(HomeGoal.group.goal)")
                     .padding(.horizontal, 30)
@@ -207,6 +209,7 @@ struct HomeGoal:View {
 struct HomeLog:View {
     static var group = dao.userProfile.group[dao.userProfile.currentGroup]
     @State var log = group.log//.reversed()
+    
     
     var body: some View{
             VStack(spacing: 0){
