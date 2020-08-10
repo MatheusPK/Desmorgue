@@ -22,9 +22,6 @@ struct TimelineScollView: View {
             
             TimelineTop()
             
-            Spacer()
-            
-            
             TimelineBar(index: self.$index, offset: self.$offset)
             //Divider()
             ScrollView(.vertical, showsIndicators: false) {
@@ -137,46 +134,54 @@ struct TimelineBar:View {
     @Binding var index:Int
     @Binding var offset: CGFloat
     var body: some View{
-        VStack(alignment: .center, content: {
+        
+        ZStack(){
             
-            HStack{
-                Button(action: {
-                    self.index = 0
-                }) {
-                    VStack(spacing: 8){
-                        HStack(spacing: 12){
-                        Image(systemName: "exclamationmark.triangle")
-                            .foregroundColor(self.index == 0 ? .black: Color.black.opacity(0.7))
-                        Text("Todas")
-                            .foregroundColor(self.index == 0 ? .black: Color.black.opacity(0.7))
-                        
-                    }
-                    Capsule()
-                        .fill(self.index == 0 ? Color.black: Color.clear)
-                        .frame(height: 4)
-                        .padding(.horizontal, 5)
-                    }
-                }
-                Button(action: {
-                    self.index = 1
-                }) {
-                    VStack(spacing: 8){
-                        HStack(spacing: 12){
-                            Image(systemName: "folder")
-                                .foregroundColor(self.index == 1 ? .black: Color.black.opacity(0.7))
-                            Text("Afazer")
-                                .foregroundColor(self.index == 1 ? .black: Color.black.opacity(0.7))
-                                   
+            Rectangle()
+            .foregroundColor(.init(UIColor.systemGray5))
+            
+            VStack(alignment: .center, content: {
+                
+                HStack{
+                    Button(action: {
+                        self.index = 0
+                    }) {
+                        VStack(spacing: 8){
+                            HStack(spacing: 12){
+                            Image(systemName: "exclamationmark.triangle")
+                                .foregroundColor(self.index == 0 ? .black: Color.black.opacity(0.7))
+                            Text("Todas")
+                                .foregroundColor(self.index == 0 ? .black: Color.black.opacity(0.7))
+                            
                         }
                         Capsule()
-                            .fill(self.index == 1 ? Color.black: Color.clear)
+                            .fill(self.index == 0 ? Color.black: Color.clear)
                             .frame(height: 4)
                             .padding(.horizontal, 5)
+                        }
                     }
-                }
+                    Button(action: {
+                        self.index = 1
+                    }) {
+                        VStack(spacing: 8){
+                            HStack(spacing: 12){
+                                Image(systemName: "folder")
+                                    .foregroundColor(self.index == 1 ? .black: Color.black.opacity(0.7))
+                                Text("Afazer")
+                                    .foregroundColor(self.index == 1 ? .black: Color.black.opacity(0.7))
+                                       
+                            }
+                            Capsule()
+                                .fill(self.index == 1 ? Color.black: Color.clear)
+                                .frame(height: 4)
+                                .padding(.horizontal, 5)
+                        }
+                    }
 
-            }
-        })
+                }
+            })
+            
+        }.frame(height:40)
     }
 }
 
@@ -190,7 +195,6 @@ struct TimelineTop:View {
             Rectangle()
                 .foregroundColor(.init(UIColor.systemGray5))
                 .edgesIgnoringSafeArea(.top)
-                .shadow(color: .black, radius: 0.5)
             
             HStack(){
                 if group.picture != ""{

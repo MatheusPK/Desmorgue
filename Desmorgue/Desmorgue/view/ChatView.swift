@@ -65,3 +65,9 @@ struct ChatTop:View {
         
     }
 }
+
+struct ChatView_Previews: PreviewProvider {
+    static var previews: some View {
+        Chat()
+    }
+}
