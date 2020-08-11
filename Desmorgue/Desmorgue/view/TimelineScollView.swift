@@ -23,7 +23,6 @@ struct TimelineScollView: View {
             
             //TimelineBar(index: self.$index, offset: self.$offset)
             //Divider()
-            Spacer()
 
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 30) {
