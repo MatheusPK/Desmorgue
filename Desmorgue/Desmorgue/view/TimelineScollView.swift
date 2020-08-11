@@ -12,69 +12,43 @@ import SwiftUI
 struct TimelineScollView: View {
     @State var index = 0
     @State var offset:CGFloat = 0
-    static var tasks = dao.userProfile.group[dao.userProfile.currentGroup].taskBoard
-    var tasksTitles = getTaskTitle(tasks: tasks)
-    var tasksDeadlines = getTaskDeadline(tasks: tasks)
-    var taskCount = tasks.count
+    static var group = dao.userProfile.group[dao.userProfile.currentGroup]
+    @State var tasks = group.taskBoard
+    @State var orderedTasks = group.taskBoard.sorted(by:{$0.deadline < $1.deadline})
     var now = Date()
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             
             TimelineTop()
             
-            TimelineBar(index: self.$index, offset: self.$offset)
+            //TimelineBar(index: self.$index, offset: self.$offset)
             //Divider()
+            Spacer()
+
             ScrollView(.vertical, showsIndicators: false) {
-                if self.index == 0 {
-                    VStack(spacing: 30) {
-                        ForEach(0...(taskCount-1), id: \.self) { i in
-                            HStack(spacing: 5) {
-                                Text(dateToString(date: self.tasksDeadlines[i]))
-                                    .frame(width: 80)
-                                    .padding(.leading)
-                                if self.now > self.tasksDeadlines[i] {
-                                    Circle()
-                                        .frame(width: 50, height: 50)
-                                        .foregroundColor(.red)
-                                }
-                                else {
-                                    Circle()
-                                        .frame(width: 50, height: 50)
-                                        .foregroundColor(.green)
-                                }
-                                Text(self.tasksTitles[i])
-                                
-                                Spacer()
-                            }.frame(height: 60)
-                        }
-                    }
-                }
-                
-                else if self.index == 1 {
-                    VStack(spacing: 30) {
-                        ForEach(0...(taskCount-1), id: \.self) { i in
-                            VStack {
-                                
-                                if self.now < self.tasksDeadlines[i] {
-                                    HStack(spacing: 5) {
-                                        Text(dateToString(date: self.tasksDeadlines[i]))
-                                            .frame(width: 80)
-                                            .padding(.leading)
-                                        
-                                        Circle()
-                                            .frame(width: 50, height: 50)
-                                            .foregroundColor(.green)
-                                        
-                                        Text(self.tasksTitles[i])
-                                        Spacer()
-                                        }.frame(height: 60)
-                                }
-                                Spacer()
+                VStack(spacing: 30) {
+                    ForEach(orderedTasks, id: \.self) { task in
+                        HStack(spacing: 5) {
+                            Text(dateToString(date: task.deadline))    .frame(width: 80)
+                                .padding(.leading)
+                            if self.now > task.deadline {
+                                Circle()
+                                    .frame(width: 50, height: 50)
+                                    .foregroundColor(.red)
                             }
-                        }
+                            else {
+                                Circle()
+                                    .frame(width: 50, height: 50)
+                                    .foregroundColor(.green)
+                            }
+                            Text(task.title)
+                            
+                            Spacer()
+                        }.frame(height: 60)
                     }
                 }
             }
+            
         }
     }
 }
@@ -237,23 +211,6 @@ struct TimelineScollView_Previews: PreviewProvider {
     static var previews: some View {
         TimelineScollView()
     }
-}
-
-func getTaskTitle(tasks: [Task]) -> [String] {
-    var titles:[String] = []
-    for task in tasks {
-        titles.append(task.title)
-    }
-    return titles
-}
-
-func getTaskDeadline(tasks: [Task]) -> [Date] {
-    var deadlines:[Date] = []
-    for task in tasks {
-        deadlines.append(task.deadline)
-    }
-    deadlines = deadlines.sorted(by:{ $0.compare($1) == .orderedAscending} )
-    return deadlines
 }
 
 func dateToString(date: Date) -> String {
