@@ -22,7 +22,7 @@ class Task : EventProtocol, TaskProtocol, Codable, ObservableObject, Hashable{
     var description: String
     var deadline: Date
     var date: Date
-    
+    var isExpanded = false
     
     init(owner: Profile, title: String, description: String, deadline: Date, date: Date, group: Group){
         self.owner = owner

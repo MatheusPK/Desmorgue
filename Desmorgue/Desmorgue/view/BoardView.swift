@@ -110,14 +110,54 @@ struct AppBar:View {
 struct Avisos: View {
     static var group = dao.userProfile.group[dao.userProfile.currentGroup]
     @State var notices = group.noticeBoard
+    @State var expandedIndexes : [Int] = []
     
     var body: some View{
         ZStack(){
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing:0){
-                    ForEach(notices, id: \.self) { notice in
-                        Button(action: {}){
-                            ZStack(){
+                    ForEach(0...(notices.count-1), id: \.self) { i in
+                        HStack(){
+                            
+                            if self.notices[i].isExpanded == false {
+                                Button(action: {changeNoticeState(notice: self.notices[i])}){
+                                    ZStack(){
+                                    Rectangle()
+                                        .frame(height: 160)
+                                        .cornerRadius(15)
+                                        .padding(.vertical, 15)
+                                        .padding(.horizontal, 15)
+                                        .foregroundColor(.green)
+                                        .opacity(0.6)
+                                    
+                                    Text(self.notices[i].title)
+                                        .font(.system(size: 25))
+                                        .foregroundColor(.black)
+                                        .padding(.horizontal, 30)
+                                }
+                            }
+                            }
+                            else if self.notices[i].isExpanded == true {
+                                ZStack(){
+                                Button(action: {changeNoticeState(notice: self.notices[i])}){
+                                    Rectangle()
+                                        .frame(height: 300)
+                                        .cornerRadius(15)
+                                        .padding(.vertical, 15)
+                                        .padding(.horizontal, 15)
+                                        .foregroundColor(.green)
+                                        .opacity(0.6)
+                                    
+                                    Text(self.notices[i].title)
+                                        .font(.system(size: 25))
+                                        .foregroundColor(.black)
+                                        .padding(.horizontal, 30)
+                                }
+                            }
+                            }
+                            else{
+                                Button(action: {changeNoticeState(notice: self.notices[i])}){
+                                    ZStack(){
                                 Rectangle()
                                     .frame(height: 160)
                                     .cornerRadius(15)
@@ -126,14 +166,19 @@ struct Avisos: View {
                                     .foregroundColor(.green)
                                     .opacity(0.6)
                                 
-                                Text(notice.title)
+                                Text(self.notices[i].title)
                                     .font(.system(size: 25))
                                     .foregroundColor(.black)
                                     .padding(.horizontal, 30)
+                                }
+                                }
                             }
                         }
-                    }           }
+                    }
+                }
             }
+            
+            
             
             
             
@@ -151,7 +196,7 @@ struct Avisos: View {
                                 .foregroundColor(.pink)
                                 .opacity(0.95)
                                 .frame(width: 50, height: 50)
-                                .shadow(color: .black, radius: 5)
+                                .shadow(color: .black, radius: 2)
                             
                             Image(systemName: "plus")
                                 .frame(width: 50, height: 50)
@@ -200,6 +245,7 @@ struct Arquivos: View {
             //BOTÃO DE ADICIONAR
             
             VStack(){
+                
                 Spacer()
                 
                 HStack(){
@@ -211,7 +257,7 @@ struct Arquivos: View {
                                 .foregroundColor(.pink)
                                 .opacity(0.95)
                                 .frame(width: 50, height: 50)
-                                .shadow(color: .black, radius: 5)
+                                .shadow(color: .black, radius: 2)
                             
                             Image(systemName: "plus")
                                 .frame(width: 50, height: 50)
@@ -264,7 +310,7 @@ struct Tarefas: View {
                                             .padding(.bottom, 20)
                                             .foregroundColor(.black)
                                         
-                                            Spacer()
+                                        Spacer()
                                     }
                                 }
                                 
@@ -290,7 +336,7 @@ struct Tarefas: View {
                                 .foregroundColor(.pink)
                                 .opacity(0.95)
                                 .frame(width: 50, height: 50)
-                                .shadow(color: .black, radius: 5)
+                                .shadow(color: .black, radius: 2)
                             
                             Image(systemName: "plus")
                                 .frame(width: 50, height: 50)
@@ -346,4 +392,26 @@ struct MuralTop:View {
             }.padding(.horizontal, 15)
         }.frame(height: 50)
     }
+}
+
+
+func changeNoticeState(notice:Notice){
+    if !notice.isExpanded {notice.isExpanded = true}
+    else if notice.isExpanded {notice.isExpanded = false}
+    else {notice.isExpanded = false}
+    print(notice.isExpanded)
+}
+
+func changeFileState(file:File){
+    if !file.isExpanded {file.isExpanded = true}
+    else if file.isExpanded {file.isExpanded = false}
+    else {file.isExpanded = false}
+    
+}
+
+func changeTaskState(task:Task){
+    if !task.isExpanded {task.isExpanded = true}
+    else if task.isExpanded {task.isExpanded = false}
+    else {task.isExpanded = false}
+    
 }

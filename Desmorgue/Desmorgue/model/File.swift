@@ -19,6 +19,7 @@ class File : EventProtocol, FileProtocol, Codable, ObservableObject, Hashable {
     var description: String
     var link: String
     var date: Date
+    var isExpanded = false
     
     init(owner: Profile, description: String, link: String, date: Date, group: Group){
         self.owner = owner
