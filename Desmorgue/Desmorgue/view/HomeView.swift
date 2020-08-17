@@ -25,12 +25,13 @@ struct Home_Previews: PreviewProvider {
 
 
 struct Home:View {
-    
+    var profile = dao.userProfile
+    var group = dao.userProfile.group[dao.userProfile.currentGroup]
     
     
     var body: some View{
             VStack(){
-                HomeTop()
+                ViewTop(title: group.name)
                 
                 Spacer()
                     .frame(height: sectionSpacer - 10)
@@ -49,54 +50,6 @@ struct Home:View {
             }
     }
 }
-
-
-
-struct HomeTop:View {
-    var profile = dao.userProfile
-    var group = dao.userProfile.group[dao.userProfile.currentGroup]
-    
-    var body: some View{
-        ZStack(){
-            Rectangle()
-                .foregroundColor(.init(UIColor.systemGray5))
-                .edgesIgnoringSafeArea(.top)
-                .shadow(color: .black, radius: 0.5)
-            
-            HStack(){
-                if group.picture != ""{
-                    Button(action: { ContentView().isMenuActive = true}){
-                        Image(group.picture)
-                            .frame(width: 50, height: 50, alignment: .center)
-                    }
-                }
-                else{
-                    Button(action: {ContentView().isMenuActive = true}){
-                        Image(systemName: "line.horizontal.3")
-                            .frame(width: 50, height: 50, alignment: .center)
-                            .foregroundColor(.pink)
-                            .scaleEffect(2)
-                    }
-                }
-                
-                Spacer()
-                
-                Text(group.name)
-                    .font(.system(size: 30))
-                
-                Spacer()
-                
-                Button(action: {ContentView().profilePage = true}){
-                    Image(systemName: "person.circle")
-                        .frame(width: 50, height: 50, alignment: .center)
-                        .foregroundColor(.pink)
-                        .scaleEffect(2)
-                }
-            }.padding(.horizontal, 15)
-        }.frame(height: 50)
-    }
-}
-
 
 struct HomeMembers:View {
     static var group = dao.userProfile.group[dao.userProfile.currentGroup]
@@ -282,59 +235,4 @@ struct HomeLog:View {
             }
         }
     }
-}
-
-
-
-func getPictures(group: Group) -> [String]{
-    var pics:[String] = []
-    for member in group.members {
-        if member.picture != nil{
-            pics.append(member.picture!)
-        }
-        else{
-            pics.append("null")
-        }
-    }
-    return pics
-}
-
-
-func getNames(group: Group) -> [String]{
-    var names:[String] = []
-    for member in group.members {
-        names.append(member.name)
-    }
-    return names
-}
-
-func getLogEvents(group: Group) -> [EventType]{
-    var logEvents:[EventType] = []
-    for event in group.log {
-        logEvents.append(event.eventType)
-    }
-    return logEvents.reversed()
-}
-
-func getLogIcons(group: Group) -> [String]{
-    var logIcons:[String] = []
-    for event in group.log {
-        if event.icon != nil{
-            logIcons.append(event.icon!)
-        }
-        else if event.icon == nil{
-            logIcons.append("null")
-        }
-        
-        
-    }
-    return logIcons.reversed()
-}
-
-func getLogDescriptions(group: Group) -> [String]{
-    var logDescriptions:[String] = []
-    for event in group.log {
-        logDescriptions.append(event.description)
-    }
-    return logDescriptions.reversed()
 }
