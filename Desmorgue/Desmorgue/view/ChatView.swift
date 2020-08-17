@@ -13,6 +13,7 @@ struct Chat:View{
     var body:some View{
         VStack(){
             ViewTop(title: "Chat")
+            
             ChatView()
             Spacer()
         }

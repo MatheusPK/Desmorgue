@@ -26,18 +26,15 @@ struct TaskCard: View {
                             .opacity(0.6)
                         
                         VStack(){
-                            HStack(){
-                                Image(systemName: "chevron.up.circle")
-                                    .frame(width: 35, height: 35)
-                                    .padding(.leading, 15)
-                                    .foregroundColor(.black)
-                                
-                                Spacer()
-                            }
+                            Spacer()
+                            
                             Text(associatedTask.title)
                                 .font(.system(size: 25))
                                 .foregroundColor(.black)
                                 .padding(.horizontal, 15)
+                            
+                            
+                            Spacer()
                             
                             ZStack(){
                                 
@@ -52,8 +49,6 @@ struct TaskCard: View {
                                     .padding(.vertical, 10)
                             }
                             
-                            Spacer()
-                            
                             HStack(){
                                 Text(associatedTask.getDeadline())
                                     .frame(width: 90, height: 30)
@@ -61,8 +56,13 @@ struct TaskCard: View {
                                     .foregroundColor(.black)
                                 
                                 Spacer()
+                                
+                                Image(systemName: "chevron.up")
+                                .frame(width: 20, height: 20)
+                                .padding(.trailing, 20)
+                                .foregroundColor(.black)
                             }
-                        }.padding(.vertical, 15)
+                        }.padding(.vertical, 5)
                     }
                 }
             }
@@ -78,14 +78,6 @@ struct TaskCard: View {
                             .opacity(0.6)
                         
                         VStack(){
-                            HStack(){
-                                Image(systemName: "chevron.down.circle")
-                                    .frame(width: 35, height: 35)
-                                    .padding(.leading, 15)
-                                    .foregroundColor(.black)
-                                
-                                Spacer()
-                            }
                             
                             Spacer()
                             
@@ -94,8 +86,6 @@ struct TaskCard: View {
                                 .foregroundColor(.black)
                                 .padding(.horizontal, 15)
                             
-                            Spacer()
-                            
                             HStack(){
                                 Text(associatedTask.getDeadline())
                                     .frame(width: 90, height: 30)
@@ -103,8 +93,13 @@ struct TaskCard: View {
                                     .foregroundColor(.black)
                                 
                                 Spacer()
+                                
+                                Image(systemName: "chevron.down")
+                                    .frame(width: 20, height: 20)
+                                    .padding(.trailing, 20)
+                                    .foregroundColor(.black)
                             }
-                        }.padding(.vertical, 15)
+                        }.padding(.vertical, 5)
                     }
                 }
             }
@@ -133,18 +128,14 @@ struct NoticeCard: View {
                             .opacity(0.6)
                         
                         VStack(){
-                            HStack(){
-                                Image(systemName: "chevron.up.circle")
-                                    .frame(width: 35, height: 35)
-                                    .padding(.leading, 15)
-                                    .foregroundColor(.black)
-                                
-                                Spacer()
-                            }
+                            Spacer()
+                            
                             Text(associatedNotice.title)
                                 .font(.system(size: 25))
                                 .foregroundColor(.black)
                                 .padding(.horizontal, 15)
+                            
+                            Spacer()
                             
                             ZStack(){
                                 
@@ -161,7 +152,15 @@ struct NoticeCard: View {
                             
                             Spacer()
                             
-                        }.padding(.vertical, 15)
+                            HStack(){
+                                Spacer()
+                                Image(systemName: "chevron.up")
+                                    .frame(width: 35, height: 35)
+                                    .padding(.trailing, 20)
+                                    .foregroundColor(.black)
+                            }
+                            
+                        }.padding(.vertical, 5)
                     }
                 }
             }
@@ -177,22 +176,21 @@ struct NoticeCard: View {
                             .opacity(0.6)
                         
                         VStack(){
-                            HStack(){
-                                Image(systemName: "chevron.down.circle")
-                                    .frame(width: 35, height: 35)
-                                    .padding(.leading, 15)
-                                    .foregroundColor(.black)
-                                
-                                Spacer()
-                            }
+                            Spacer()
                             
                             Text(associatedNotice.title)
                                 .font(.system(size: 25))
                                 .foregroundColor(.black)
                                 .padding(.horizontal, 15)
                             
-                            Spacer()
-                        }.padding(.vertical, 15)
+                            HStack(){
+                                Spacer()
+                                Image(systemName: "chevron.down")
+                                    .frame(width: 35, height: 35)
+                                    .padding(.trailing, 20)
+                                    .foregroundColor(.black)
+                            }
+                        }.padding(.vertical, 5)
                     }
                 }
             }
@@ -221,14 +219,8 @@ struct FileCard: View {
                             .opacity(0.6)
                         
                         VStack(){
-                            HStack(){
-                                Image(systemName: "chevron.up.circle")
-                                    .frame(width: 35, height: 35)
-                                    .padding(.leading, 15)
-                                    .foregroundColor(.black)
-                                
-                                Spacer()
-                            }
+                            
+                            Spacer()
                             
                             Text(associatedFile.description)
                                 .font(.system(size: 25))
@@ -242,7 +234,15 @@ struct FileCard: View {
                                 .foregroundColor(.black)
                                 .frame(width: 80, height: 80)
                             
-                        }.padding(.vertical, 15)
+                            HStack(){
+                                Spacer()
+                                Image(systemName: "chevron.up")
+                                    .frame(width: 35, height: 35)
+                                    .padding(.trailing, 20)
+                                    .foregroundColor(.black)
+                            }
+                            
+                        }.padding(.vertical, 5)
                     }
                 }
             }
@@ -258,22 +258,21 @@ struct FileCard: View {
                             .opacity(0.6)
                         
                         VStack(){
-                            HStack(){
-                                Image(systemName: "chevron.down.circle")
-                                    .frame(width: 35, height: 35)
-                                    .padding(.leading, 15)
-                                    .foregroundColor(.black)
-                                
-                                Spacer()
-                            }
+                            Spacer()
                             
                             Text(associatedFile.description)
                                 .font(.system(size: 25))
                                 .foregroundColor(.black)
-                                .padding(.horizontal, 15)
+                                .padding(.horizontal, 20)
                             
-                            Spacer()
-                        }.padding(.vertical, 15)
+                            HStack(){
+                                Spacer()
+                                Image(systemName: "chevron.down")
+                                    .frame(width: 35, height: 35)
+                                    .padding(.trailing, 20)
+                                    .foregroundColor(.black)
+                            }
+                        }.padding(.vertical, 5)
                     }
                 }
             }
