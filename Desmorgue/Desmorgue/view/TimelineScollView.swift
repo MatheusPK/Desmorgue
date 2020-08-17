@@ -19,7 +19,7 @@ struct TimelineScollView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             
-            TimelineTop()
+            ViewTop(title: "Linha do Tempo")
             
             //TimelineBar(index: self.$index, offset: self.$offset)
             //Divider()
@@ -159,50 +159,6 @@ struct TimelineBar:View {
 }
 
 
-struct TimelineTop:View {
-    var profile = dao.userProfile
-    var group = dao.userProfile.group[dao.userProfile.currentGroup]
-    
-    var body: some View{
-        ZStack(){
-            Rectangle()
-                .foregroundColor(.init(UIColor.systemGray5))
-                .edgesIgnoringSafeArea(.top)
-            
-            HStack(){
-                if group.picture != ""{
-                    Button(action: { ContentView().isMenuActive = true}){
-                        Image(group.picture)
-                            .frame(width: 50, height: 50, alignment: .center)
-                    }
-                }
-                else{
-                    Button(action: {ContentView().isMenuActive = true}){
-                        Image(systemName: "line.horizontal.3")
-                            .frame(width: 50, height: 50, alignment: .center)
-                            .foregroundColor(.pink)
-                            .scaleEffect(2)
-                    }
-                }
-                
-                Spacer()
-                
-                Text("Timeline")
-                    .font(.system(size: 30))
-                
-                Spacer()
-                
-                Button(action: {ContentView().profilePage = true}){
-                    Image(systemName: "person.circle")
-                        .frame(width: 50, height: 50, alignment: .center)
-                        .foregroundColor(.pink)
-                        .scaleEffect(2)
-                }
-            }.padding(.horizontal, 15)
-        }.frame(height: 50)
-        
-    }
-}
 
 
 

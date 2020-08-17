@@ -22,7 +22,7 @@ struct BoardView:View {
     var body: some View{
         VStack(spacing: 0){
             
-            MuralTop()
+            ViewTop(title: "Mural")
             
             AppBar(index: self.$index, offset: self.$offset)
             if self.index==0{
@@ -235,46 +235,3 @@ struct Tarefas: View {
 }
 
 
-struct MuralTop:View {
-    var profile = dao.userProfile
-    var group = dao.userProfile.group[dao.userProfile.currentGroup]
-    
-    var body: some View{
-        ZStack(){
-            Rectangle()
-                .foregroundColor(.init(UIColor.systemGray5))
-                .edgesIgnoringSafeArea(.top)
-            
-            HStack(){
-                if group.picture != ""{
-                    Button(action: { ContentView().isMenuActive = true}){
-                        Image(group.picture)
-                            .frame(width: 50, height: 50, alignment: .center)
-                    }
-                }
-                else{
-                    Button(action: {ContentView().isMenuActive = true}){
-                        Image(systemName: "line.horizontal.3")
-                            .frame(width: 50, height: 50, alignment: .center)
-                            .foregroundColor(.pink)
-                            .scaleEffect(2)
-                    }
-                }
-                
-                Spacer()
-                
-                Text("Mural")
-                    .font(.system(size: 30))
-                
-                Spacer()
-                
-                Button(action: {ContentView().profilePage = true}){
-                    Image(systemName: "person.circle")
-                        .frame(width: 50, height: 50, alignment: .center)
-                        .foregroundColor(.pink)
-                        .scaleEffect(2)
-                }
-            }.padding(.horizontal, 15)
-        }.frame(height: 50)
-    }
-}
