@@ -62,7 +62,8 @@ struct TimelineScollView: View {
                                     }
                                 }
                                 Text(task.title)
-                                    .font(.system(size: 25))
+                                    .font(.system(size: 20))
+                                    .frame(height: 85)
                                 
                                 Spacer()
                             }
