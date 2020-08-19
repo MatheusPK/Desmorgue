@@ -12,36 +12,58 @@ import SwiftUI
 
 struct BoardAddButton:View{
     
+    @State var boardAddPage = false
     
     
     var body: some View{
         
-        VStack(){
+        ZStack(){
             
-            Spacer()
+            if !self.boardAddPage{
+                
+                BoardAddPage()
+            }
             
-            HStack(){
+            VStack(){
                 
                 Spacer()
                 
-                Button(action: {}){
+                HStack(){
                     
-                    ZStack(){
+                    Spacer()
+                    
+                    Button(action: {self.boardAddPage.toggle()}){
                         
-                        Circle()
-                            .strokeBorder(Color.black, lineWidth: 2)
-                            .frame(width: 50, height: 50)
-                        
-                        Circle()
-                            .foregroundColor(.init(UIColor.systemGray2))
-                            .frame(width: 48, height: 48)
-                        
-                        Image(systemName: "plus")
-                            .frame(width: 50, height: 50)
-                            .foregroundColor(.black)
-                    }
-                }.shadow(color: .black, radius: 55)
-            }.padding(.horizontal, 10)
-        }.padding(.vertical, 10)
+                        ZStack(){
+                            
+                            Circle()
+                                .strokeBorder(Color.black, lineWidth: 2)
+                                .frame(width: 50, height: 50)
+                            
+                            Circle()
+                                .foregroundColor(.init(UIColor.systemGray2))
+                                .frame(width: 48, height: 48)
+                            
+                            Image(systemName: "plus")
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(.black)
+                        }
+                    }.shadow(color: .black, radius: 55)
+                }.padding(.horizontal, 10)
+            }.padding(.vertical, 10)
+        }
+        
+        
+    }
+}
+
+
+struct BoardAddPage : View {
+    
+    
+    var body : some View{
+        
+        Rectangle()
+            .frame(width: UIScene.)
     }
 }

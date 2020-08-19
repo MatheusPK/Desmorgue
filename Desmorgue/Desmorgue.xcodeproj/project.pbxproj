@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8B3EEB4424D9D52A00E4915F /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3EEB4324D9D52A00E4915F /* DAO.swift */; };
-		8BF22EDC24DB0DD500A50A2E /* TimelineScollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF22EDB24DB0DD500A50A2E /* TimelineScollView.swift */; };
+		8BF22EDC24DB0DD500A50A2E /* TimelineScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF22EDB24DB0DD500A50A2E /* TimelineScrollView.swift */; };
 		8D00D0F124DCAD780078B6D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D00D0F024DCAD780078B6D8 /* ContentView.swift */; };
 		8D2C2E0F24EAFA300096016D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2C2E0E24EAFA300096016D /* CardView.swift */; };
 		8D2C2E1124EB0ADF0096016D /* ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2C2E1024EB0ADF0096016D /* ViewTop.swift */; };
@@ -57,7 +57,7 @@
 
 /* Begin PBXFileReference section */
 		8B3EEB4324D9D52A00E4915F /* DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
-		8BF22EDB24DB0DD500A50A2E /* TimelineScollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineScollView.swift; sourceTree = "<group>"; };
+		8BF22EDB24DB0DD500A50A2E /* TimelineScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineScrollView.swift; sourceTree = "<group>"; };
 		8D00D0F024DCAD780078B6D8 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8D2C2E0E24EAFA300096016D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		8D2C2E1024EB0ADF0096016D /* ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTop.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 				8D2C2E0E24EAFA300096016D /* CardView.swift */,
 				8D2C2E1024EB0ADF0096016D /* ViewTop.swift */,
 				8D716B6624D8A87E00028DE5 /* ChatView.swift */,
-				8BF22EDB24DB0DD500A50A2E /* TimelineScollView.swift */,
+				8BF22EDB24DB0DD500A50A2E /* TimelineScrollView.swift */,
 				8DB010EA24EDA9CD00867FFE /* TimelineAddButton.swift */,
 			);
 			path = view;
@@ -360,7 +360,7 @@
 				8DEACCF624D89EBD002BC35F /* Board.swift in Sources */,
 				8DB010E924ED9C5900867FFE /* BoardAddButton.swift in Sources */,
 				8D57E93624D4B0D800382732 /* Notice.swift in Sources */,
-				8BF22EDC24DB0DD500A50A2E /* TimelineScollView.swift in Sources */,
+				8BF22EDC24DB0DD500A50A2E /* TimelineScrollView.swift in Sources */,
 				8D2C2E1124EB0ADF0096016D /* ViewTop.swift in Sources */,
 				8DEACCF224D89B61002BC35F /* Group.swift in Sources */,
 				8D4F57CF24CF642000528185 /* Extensions.swift in Sources */,
