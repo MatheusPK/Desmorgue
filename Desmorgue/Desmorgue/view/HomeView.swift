@@ -93,9 +93,9 @@ struct HomeMembers:View {
                         }
                         VStack(spacing: 0){
                             
-                            Image(systemName: "plus.circle")
-                                .scaleEffect(3)
-                                .frame(width: 50, height: 50)
+                            Image(systemName: "plus")
+                                .scaleEffect(2)
+                                .frame(width: 30, height: 30)
                                 .padding(.bottom)
                         }
                     }.padding(.horizontal, 20)

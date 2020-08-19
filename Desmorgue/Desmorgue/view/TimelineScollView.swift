@@ -25,27 +25,67 @@ struct TimelineScollView: View {
             //Divider()
 
             ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: 30) {
+                VStack(spacing: 0) {
                     ForEach(orderedTasks, id: \.self) { task in
-                        HStack(spacing: 5) {
-                            Text(dateToString(date: task.deadline))    .frame(width: 80)
-                                .padding(.leading)
-                            if self.now > task.deadline {
-                                Circle()
-                                    .frame(width: 50, height: 50)
-                                    .foregroundColor(.red)
-                            }
-                            else {
-                                Circle()
-                                    .frame(width: 50, height: 50)
-                                    .foregroundColor(.green)
-                            }
-                            Text(task.title)
+                        VStack(spacing: 0){
                             
-                            Spacer()
-                        }.frame(height: 60)
+                            HStack(spacing: 10) {
+                                
+                                if self.now > task.deadline {
+                                    ZStack(){
+                                        Circle()
+                                            .strokeBorder(Color.black, lineWidth: 2)
+                                            .frame(width: 85, height: 85)
+                                        
+                                        Circle()
+                                            .frame(width: 83, height: 83)
+                                            .foregroundColor(.red)
+                                            .opacity(0.8)
+                                        
+                                        Text(dateToString(date: task.deadline))
+                                            .frame(width: 80)
+                                    }
+                                }
+                                else {
+                                    ZStack(){
+                                        Circle()
+                                            .strokeBorder(Color.black, lineWidth: 2)
+                                            .frame(width: 85, height: 85)
+                                        
+                                        Circle()
+                                            .frame(width: 83, height: 83)
+                                            .foregroundColor(.green)
+                                            .opacity(0.8)
+                                        
+                                        Text(dateToString(date: task.deadline))
+                                            .frame(width: 80)
+                                    }
+                                }
+                                Text(task.title)
+                                    .font(.system(size: 25))
+                                
+                                Spacer()
+                            }
+                            HStack(spacing: 0){
+                                
+                                Rectangle()
+                                    .frame(width: 41)
+                                    .foregroundColor(.clear)
+                                
+                                Rectangle()
+                                    .frame(width: 3, height: 20)
+                                    .foregroundColor(.black)
+                                
+                                Spacer()
+                            }
+                        }
                     }
+                    
+                    TimelineAddButton()
+                    
                 }
+                .padding(.top, 10)
+                .padding(.horizontal, 15)
             }
             
         }

@@ -123,29 +123,8 @@ struct Avisos: View {
                     }
                 }.padding(.vertical, 15)
             }
-            //BOTÃO DE ADICIONAR
             
-            VStack(){
-                Spacer()
-                
-                HStack(){
-                    Spacer()
-                    
-                    Button(action: {}){
-                        ZStack(){
-                            Circle()
-                                .foregroundColor(.pink)
-                                .opacity(0.95)
-                                .frame(width: 50, height: 50)
-                                .shadow(color: .black, radius: 2)
-                            
-                            Image(systemName: "plus")
-                                .frame(width: 50, height: 50)
-                                .foregroundColor(.black)
-                        }
-                    }.shadow(color: .black, radius: 55)
-                }.padding(.horizontal, 10)
-            }.padding(.vertical, 10)
+            BoardAddButton()
         }
     }
 }
@@ -163,30 +142,8 @@ struct Arquivos: View {
                     }
                 }.padding(.vertical, 15)
             }
-            //BOTÃO DE ADICIONAR
             
-            VStack(){
-                
-                Spacer()
-                
-                HStack(){
-                    Spacer()
-                    
-                    Button(action: {}){
-                        ZStack(){
-                            Circle()
-                                .foregroundColor(.pink)
-                                .opacity(0.95)
-                                .frame(width: 50, height: 50)
-                                .shadow(color: .black, radius: 2)
-                            
-                            Image(systemName: "plus")
-                                .frame(width: 50, height: 50)
-                                .foregroundColor(.black)
-                        }
-                    }.shadow(color: .black, radius: 55)
-                }.padding(.horizontal, 10)
-            }.padding(.vertical, 10)
+            BoardAddButton()
         }
     }
 }
@@ -208,28 +165,7 @@ struct Tarefas: View {
                 }.padding(.vertical, 15)
             }
             
-            //BOTÃO DE ADICIONAR
-            VStack(){
-                Spacer()
-                
-                HStack(){
-                    Spacer()
-                    
-                    Button(action: {}){
-                        ZStack(){
-                            Circle()
-                                .foregroundColor(.pink)
-                                .opacity(0.95)
-                                .frame(width: 50, height: 50)
-                                .shadow(color: .black, radius: 2)
-                            
-                            Image(systemName: "plus")
-                                .frame(width: 50, height: 50)
-                                .foregroundColor(.black)
-                        }
-                    }.shadow(color: .black, radius: 55)
-                }.padding(.horizontal, 10)
-            }.padding(.vertical, 10)
+            BoardAddButton()
         }
     }
 }

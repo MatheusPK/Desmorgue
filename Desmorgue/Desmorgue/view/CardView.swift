@@ -26,12 +26,12 @@ struct TaskCard: View {
                             .opacity(0.6)
                         
                         VStack(){
-                            Spacer()
                             
                             Text(associatedTask.title)
-                                .font(.system(size: 25))
-                                .foregroundColor(.black)
-                                .padding(.horizontal, 15)
+                            .font(.system(size: 25))
+                            .foregroundColor(.black)
+                            .frame(minHeight: 100)
+                            .frame(width: 380)
                             
                             
                             Spacer()
@@ -58,7 +58,7 @@ struct TaskCard: View {
                                 Spacer()
                                 
                                 Image(systemName: "chevron.up")
-                                .frame(width: 20, height: 20)
+                                .frame(width: 20, height: 10)
                                 .padding(.trailing, 20)
                                 .foregroundColor(.black)
                             }
@@ -71,7 +71,7 @@ struct TaskCard: View {
                 Button(action: {self.isExpanded.toggle()}){
                     ZStack(){
                         Rectangle()
-                            .frame(height: 160)
+                            .frame(minHeight: 120)
                             .cornerRadius(15)
                             .padding(.horizontal, 15)
                             .foregroundColor(.green)
@@ -79,23 +79,22 @@ struct TaskCard: View {
                         
                         VStack(){
                             
-                            Spacer()
-                            
                             Text(associatedTask.title)
                                 .font(.system(size: 25))
                                 .foregroundColor(.black)
-                                .padding(.horizontal, 15)
+                                .frame(minHeight: 100)
+                                .frame(width: 380)
                             
                             HStack(){
                                 Text(associatedTask.getDeadline())
-                                    .frame(width: 90, height: 30)
+                                    .frame(width: 90, height: 10)
                                     .padding(.leading, 15)
                                     .foregroundColor(.black)
                                 
                                 Spacer()
                                 
                                 Image(systemName: "chevron.down")
-                                    .frame(width: 20, height: 20)
+                                    .frame(width: 20, height: 10)
                                     .padding(.trailing, 20)
                                     .foregroundColor(.black)
                             }
@@ -128,12 +127,12 @@ struct NoticeCard: View {
                             .opacity(0.6)
                         
                         VStack(){
-                            Spacer()
                             
                             Text(associatedNotice.title)
-                                .font(.system(size: 25))
-                                .foregroundColor(.black)
-                                .padding(.horizontal, 15)
+                            .font(.system(size: 25))
+                            .foregroundColor(.black)
+                            .frame(minHeight: 100)
+                            .frame(width: 380)
                             
                             Spacer()
                             
@@ -155,7 +154,7 @@ struct NoticeCard: View {
                             HStack(){
                                 Spacer()
                                 Image(systemName: "chevron.up")
-                                    .frame(width: 35, height: 35)
+                                    .frame(width: 20, height: 10)
                                     .padding(.trailing, 20)
                                     .foregroundColor(.black)
                             }
@@ -169,24 +168,24 @@ struct NoticeCard: View {
                 Button(action: {self.isExpanded.toggle()}){
                     ZStack(){
                         Rectangle()
-                            .frame(height: 160)
+                            .frame(minHeight: 120)
                             .cornerRadius(15)
                             .padding(.horizontal, 15)
                             .foregroundColor(.green)
                             .opacity(0.6)
                         
                         VStack(){
-                            Spacer()
                             
                             Text(associatedNotice.title)
-                                .font(.system(size: 25))
-                                .foregroundColor(.black)
-                                .padding(.horizontal, 15)
+                            .font(.system(size: 25))
+                            .foregroundColor(.black)
+                            .frame(minHeight: 100)
+                            .frame(width: 380)
                             
                             HStack(){
                                 Spacer()
                                 Image(systemName: "chevron.down")
-                                    .frame(width: 35, height: 35)
+                                    .frame(width: 20, height: 10)
                                     .padding(.trailing, 20)
                                     .foregroundColor(.black)
                             }
@@ -220,12 +219,11 @@ struct FileCard: View {
                         
                         VStack(){
                             
-                            Spacer()
-                            
                             Text(associatedFile.description)
-                                .font(.system(size: 25))
-                                .foregroundColor(.black)
-                                .padding(.horizontal, 15)
+                            .font(.system(size: 25))
+                            .foregroundColor(.black)
+                            .frame(minHeight: 100)
+                            .frame(width: 380)
                             
                             Spacer()
                             
@@ -237,7 +235,7 @@ struct FileCard: View {
                             HStack(){
                                 Spacer()
                                 Image(systemName: "chevron.up")
-                                    .frame(width: 35, height: 35)
+                                    .frame(width: 20, height: 10)
                                     .padding(.trailing, 20)
                                     .foregroundColor(.black)
                             }
@@ -251,24 +249,24 @@ struct FileCard: View {
                 Button(action: {self.isExpanded.toggle()}){
                     ZStack(){
                         Rectangle()
-                            .frame(height: 160)
+                            .frame(minHeight: 120)
                             .cornerRadius(15)
                             .padding(.horizontal, 15)
                             .foregroundColor(.green)
                             .opacity(0.6)
                         
                         VStack(){
-                            Spacer()
                             
                             Text(associatedFile.description)
-                                .font(.system(size: 25))
-                                .foregroundColor(.black)
-                                .padding(.horizontal, 20)
+                            .font(.system(size: 25))
+                            .foregroundColor(.black)
+                            .frame(minHeight: 100)
+                            .frame(width: 380)
                             
                             HStack(){
                                 Spacer()
                                 Image(systemName: "chevron.down")
-                                    .frame(width: 35, height: 35)
+                                    .frame(width: 20, height: 10)
                                     .padding(.trailing, 20)
                                     .foregroundColor(.black)
                             }

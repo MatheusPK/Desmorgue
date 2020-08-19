@@ -74,7 +74,7 @@ struct CustomTabs: View {
                     Image(systemName: "house.fill")
                     .scaleEffect(1.5)
                 }
-                .foregroundColor(Color.pink.opacity(self.index == 0 ? 1:0.4))
+                .foregroundColor(self.index == 0 ? Color.pink:Color.gray)
                 
                 
                 Spacer(minLength: 0)
@@ -86,7 +86,7 @@ struct CustomTabs: View {
                     Image(systemName: "rectangle.3.offgrid.fill")
                     .scaleEffect(1.5)
                 }
-                .foregroundColor(Color.pink.opacity(self.index == 1 ? 1:0.4))
+                .foregroundColor(self.index == 1 ? Color.pink:Color.gray)
                 
                 
                 Spacer(minLength: 0)
@@ -98,7 +98,7 @@ struct CustomTabs: View {
                     Image(systemName: "calendar")
                     .scaleEffect(1.5)
                 }
-                .foregroundColor(Color.pink.opacity(self.index == 2 ? 1:0.4))
+                .foregroundColor(self.index == 2 ? Color.pink:Color.gray)
                 
                 
                 Spacer(minLength: 0)
@@ -110,7 +110,7 @@ struct CustomTabs: View {
                     Image(systemName: "message.fill")
                         .scaleEffect(1.5)
                 }
-                .foregroundColor(Color.pink.opacity(self.index == 3 ? 1:0.4))
+                .foregroundColor(self.index == 3 ? Color.pink:Color.gray)
                 
             }
             .padding(.horizontal, 40)

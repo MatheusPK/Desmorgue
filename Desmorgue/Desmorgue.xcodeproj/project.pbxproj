@@ -22,6 +22,8 @@
 		8D57E93C24D4B5E900382732 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D57E93B24D4B5E900382732 /* Event.swift */; };
 		8D716B6124D8A82000028DE5 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D716B6024D8A82000028DE5 /* BoardView.swift */; };
 		8D716B6724D8A87E00028DE5 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D716B6624D8A87E00028DE5 /* ChatView.swift */; };
+		8DB010E924ED9C5900867FFE /* BoardAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB010E824ED9C5900867FFE /* BoardAddButton.swift */; };
+		8DB010EB24EDA9CD00867FFE /* TimelineAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB010EA24EDA9CD00867FFE /* TimelineAddButton.swift */; };
 		8DD3087424D9F3FA00E8F073 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD3087124D9F3FA00E8F073 /* ProfileView.swift */; };
 		8DD3087624D9F45700E8F073 /* CodableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD3087524D9F45700E8F073 /* CodableExtensions.swift */; };
 		8DD3087924D9F5EA00E8F073 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD3087724D9F5EA00E8F073 /* HomeView.swift */; };
@@ -69,6 +71,8 @@
 		8D57E93B24D4B5E900382732 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		8D716B6024D8A82000028DE5 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		8D716B6624D8A87E00028DE5 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		8DB010E824ED9C5900867FFE /* BoardAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardAddButton.swift; sourceTree = "<group>"; };
+		8DB010EA24EDA9CD00867FFE /* TimelineAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineAddButton.swift; sourceTree = "<group>"; };
 		8DD3087124D9F3FA00E8F073 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		8DD3087524D9F45700E8F073 /* CodableExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableExtensions.swift; sourceTree = "<group>"; };
 		8DD3087724D9F5EA00E8F073 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -140,10 +144,12 @@
 				8DD3087724D9F5EA00E8F073 /* HomeView.swift */,
 				8DD3087124D9F3FA00E8F073 /* ProfileView.swift */,
 				8D716B6024D8A82000028DE5 /* BoardView.swift */,
+				8DB010E824ED9C5900867FFE /* BoardAddButton.swift */,
 				8D2C2E0E24EAFA300096016D /* CardView.swift */,
 				8D2C2E1024EB0ADF0096016D /* ViewTop.swift */,
 				8D716B6624D8A87E00028DE5 /* ChatView.swift */,
 				8BF22EDB24DB0DD500A50A2E /* TimelineScollView.swift */,
+				8DB010EA24EDA9CD00867FFE /* TimelineAddButton.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 				BA7A543D24CB4F470099792B /* AppDelegate.swift in Sources */,
 				8D00D0F124DCAD780078B6D8 /* ContentView.swift in Sources */,
 				8DEACCF624D89EBD002BC35F /* Board.swift in Sources */,
+				8DB010E924ED9C5900867FFE /* BoardAddButton.swift in Sources */,
 				8D57E93624D4B0D800382732 /* Notice.swift in Sources */,
 				8BF22EDC24DB0DD500A50A2E /* TimelineScollView.swift in Sources */,
 				8D2C2E1124EB0ADF0096016D /* ViewTop.swift in Sources */,
@@ -369,6 +376,7 @@
 				8D57E92C24D4AC9800382732 /* Protocols.swift in Sources */,
 				8DD3087424D9F3FA00E8F073 /* ProfileView.swift in Sources */,
 				8D2C2E0F24EAFA300096016D /* CardView.swift in Sources */,
+				8DB010EB24EDA9CD00867FFE /* TimelineAddButton.swift in Sources */,
 				8DD3087924D9F5EA00E8F073 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
