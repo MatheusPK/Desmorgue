@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-struct TimelineScrollView: View {
+struct TimelineScollView: View {
     @State var index = 0
     @State var offset:CGFloat = 0
     static var group = dao.userProfile.group[dao.userProfile.currentGroup]
@@ -39,7 +39,7 @@ struct TimelineScrollView: View {
                                         
                                         Circle()
                                             .frame(width: 83, height: 83)
-                                            .foregroundColor(.pink) 
+                                            .foregroundColor(.red)
                                             .opacity(0.8)
                                         
                                         Text(dateToString(date: task.deadline))
@@ -201,9 +201,11 @@ struct TimelineBar:View {
 
 
 
+
+
 struct TimelineScollView_Previews: PreviewProvider {
     static var previews: some View {
-        TimelineScrollView()
+        TimelineScollView()
     }
 }
 

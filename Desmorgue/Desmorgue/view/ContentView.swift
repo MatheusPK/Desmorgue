@@ -97,19 +97,18 @@ struct CustomTabs: View {
                 .foregroundColor(self.index == 2 ? Color.pink:Color.gray)
                 
                 
-                Spacer(minLength: 0)
                 
                 
-                Button(action: {
-                    self.index = 3
-                }) {
-                    Image(systemName: "message.fill")
-                        .scaleEffect(1.5)
-                }
-                .foregroundColor(self.index == 3 ? Color.pink:Color.gray)
+//                Button(action: {
+//                    self.index = 3
+//                }) {
+//                    Image(systemName: "message.fill")
+//                        .scaleEffect(1.5)
+//                }
+//                .foregroundColor(self.index == 3 ? Color.pink:Color.gray)
                 
             }
-            .padding(.horizontal, 40)
+            .padding(.horizontal,50)
         }
         
     }

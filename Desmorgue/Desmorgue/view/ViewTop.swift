@@ -32,7 +32,7 @@ struct ViewTop:View {
                     Button(action: {ContentView().isMenuActive = true}){
                         Image(systemName: "line.horizontal.3")
                             .frame(width: 50, height: 50, alignment: .center)
-                            .foregroundColor(.pink)
+                            .foregroundColor(.gray)
                             .scaleEffect(2)
                     }
                 }
@@ -47,10 +47,16 @@ struct ViewTop:View {
                 Button(action: {ContentView().profilePage = true}){
                     Image(systemName: "person.circle")
                         .frame(width: 50, height: 50, alignment: .center)
-                        .foregroundColor(.pink)
+                        .foregroundColor(.gray)
                         .scaleEffect(2)
                 }
             }.padding(.horizontal, 15)
         }.frame(height: 50)
+    }
+}
+
+struct ViewTop_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }
