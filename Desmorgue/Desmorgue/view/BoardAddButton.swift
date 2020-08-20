@@ -19,7 +19,7 @@ struct BoardAddButton:View{
         
         ZStack(){
             
-            if !self.boardAddPage{
+            if self.boardAddPage{
                 
                 BoardAddPage()
             }
@@ -64,6 +64,5 @@ struct BoardAddPage : View {
     var body : some View{
         
         Rectangle()
-            .frame(width: UIScene.)
     }
 }
