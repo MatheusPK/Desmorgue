@@ -12,17 +12,11 @@ import SwiftUI
 
 struct BoardAddButton:View{
     
-    @State var boardAddPage = false
-    
+    @State var presentBoardAddPage:Bool = false
     
     var body: some View{
         
         ZStack(){
-            
-            if self.boardAddPage{
-                
-                BoardAddPage()
-            }
             
             VStack(){
                 
@@ -32,7 +26,7 @@ struct BoardAddButton:View{
                     
                     Spacer()
                     
-                    Button(action: {self.boardAddPage.toggle()}){
+                    Button(action: {self.presentBoardAddPage.toggle()}){
                         
                         ZStack(){
                             
@@ -49,20 +43,13 @@ struct BoardAddButton:View{
                                 .foregroundColor(.black)
                         }
                     }.shadow(color: .black, radius: 55)
+                    
                 }.padding(.horizontal, 10)
             }.padding(.vertical, 10)
+        }.sheet(isPresented: $presentBoardAddPage){
+            BoardAddPage()
         }
         
         
-    }
-}
-
-
-struct BoardAddPage : View {
-    
-    
-    var body : some View{
-        
-        Rectangle()
     }
 }

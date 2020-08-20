@@ -122,7 +122,7 @@ struct Avisos: View {
                         NoticeCard(associatedNotice: notice)
                     }
                 }.padding(.vertical, 15)
-            }
+                }.animation(.default)
             
             BoardAddButton()
         }
@@ -141,7 +141,7 @@ struct Arquivos: View {
                         FileCard(associatedFile: file)
                     }
                 }.padding(.vertical, 15)
-            }
+            }.animation(.default)
             
             BoardAddButton()
         }
@@ -163,7 +163,7 @@ struct Tarefas: View {
                     Spacer()
                     
                 }.padding(.vertical, 15)
-            }
+            }.animation(.default)
             
             BoardAddButton()
         }
