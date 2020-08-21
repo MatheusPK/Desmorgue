@@ -31,7 +31,7 @@ struct BoardAddPage: View {
                         Spacer()
                         
                         Button(action: {
-                            BoardAddPage.group.taskBoard.append(Task(owner: self.profile, title: self.title, description: self.description, deadline: self.deadline, date: Date(), group: self.profile.group[self.profile.currentGroup]))
+                            dao.userProfile.group[dao.userProfile.currentGroup].taskBoard.append(Task(owner: self.profile, title: self.title, description: self.description, deadline: self.deadline, date: Date(), group: self.profile.group[self.profile.currentGroup]))
                             self.isPresented = false
                             
                         }) {
