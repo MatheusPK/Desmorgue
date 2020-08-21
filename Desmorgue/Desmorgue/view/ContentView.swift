@@ -59,7 +59,7 @@ struct CustomTabs: View {
         ZStack(){
             Rectangle()
                 .edgesIgnoringSafeArea(.bottom)
-                .frame(height: 50)
+                .frame(height: 45)
                 .foregroundColor(.init(UIColor.systemGray5))
                 .shadow(color: .black, radius: 1)
             

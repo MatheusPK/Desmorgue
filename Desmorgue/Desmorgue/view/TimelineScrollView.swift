@@ -35,10 +35,10 @@ struct TimelineScrollView: View {
                                     ZStack(){
                                         Circle()
                                             .strokeBorder(Color.black, lineWidth: 2)
-                                            .frame(width: 85, height: 85)
+                                            .frame(width: 55, height: 55)
                                         
                                         Circle()
-                                            .frame(width: 83, height: 83)
+                                            .frame(width: 53, height: 53)
                                             .foregroundColor(.pink) 
                                             .opacity(0.8)
                                         
@@ -50,10 +50,10 @@ struct TimelineScrollView: View {
                                     ZStack(){
                                         Circle()
                                             .strokeBorder(Color.black, lineWidth: 2)
-                                            .frame(width: 85, height: 85)
+                                            .frame(width: 55, height: 55)
                                         
                                         Circle()
-                                            .frame(width: 83, height: 83)
+                                            .frame(width: 53, height: 53)
                                             .foregroundColor(.green)
                                             .opacity(0.8)
                                         
@@ -74,7 +74,7 @@ struct TimelineScrollView: View {
                                     .foregroundColor(.clear)
                                 
                                 Rectangle()
-                                    .frame(width: 3, height: 20)
+                                    .frame(width: 3, height: 50)
                                     .foregroundColor(.black)
                                 
                                 Spacer()
