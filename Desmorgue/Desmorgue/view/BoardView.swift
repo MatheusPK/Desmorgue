@@ -124,7 +124,6 @@ struct Avisos: View {
                 }.padding(.vertical, 15)
                 }.animation(.default)
             
-            BoardAddButton()
         }
     }
 }
@@ -142,8 +141,7 @@ struct Arquivos: View {
                     }
                 }.padding(.vertical, 15)
             }.animation(.default)
-            
-            BoardAddButton()
+        
         }
     }
 }

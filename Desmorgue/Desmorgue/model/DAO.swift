@@ -29,7 +29,7 @@ class DAO: Codable, ObservableObject {
         let dataDate = data.date(from: "01/01/2020")
         
         //MOCK GROUP
-        self.userProfile.group.append(Group(name: "Meu Grupo", goal: "Nosso objetivo é fazer com que você consiga se organizar em grupo e com isso ter um melhor resultado na sua jornada de Aprendiz!", owner: self.userProfile))
+        self.userProfile.group.append(GroupModel(name: "Meu Grupo", goal: "Nosso objetivo é fazer com que você consiga se organizar em grupo e com isso ter um melhor resultado na sua jornada de Aprendiz!", owner: self.userProfile))
         
         
         self.profilesMock()
@@ -83,7 +83,7 @@ class DAO: Codable, ObservableObject {
     }
     
     func impre3D() {
-        let grupo = Group(name: "Impressão 3D", goal: "Construir raquete de tenis 3d", owner: self.userProfile)
+        let grupo = GroupModel(name: "Impressão 3D", goal: "Construir raquete de tenis 3d", owner: self.userProfile)
         self.userProfile.group.append(grupo)
         self.profilesMock()
         

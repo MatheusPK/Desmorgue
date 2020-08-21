@@ -18,7 +18,7 @@ class Profile:Codable, ObservableObject, Hashable{
     var name:String
     var email: String = "user@gmail.com"
     var picture: String?
-    var group: [Group] = []
+    var group: [GroupModel] = []
     public var currentGroup = 0
 
     

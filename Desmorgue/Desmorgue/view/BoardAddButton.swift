@@ -12,7 +12,7 @@ import SwiftUI
 
 struct BoardAddButton:View{
     
-    @State var presentBoardAddPage:Bool = false
+    @State private var presentBoardAddPage:Bool = false
     
     var body: some View{
         
@@ -47,7 +47,7 @@ struct BoardAddButton:View{
                 }.padding(.horizontal, 10)
             }.padding(.vertical, 10)
         }.sheet(isPresented: $presentBoardAddPage){
-            BoardAddPage()
+            BoardAddPage(isPresented: self.$presentBoardAddPage)
         }
         
         

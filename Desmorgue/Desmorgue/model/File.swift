@@ -21,7 +21,7 @@ class File : EventProtocol, FileProtocol, Codable, ObservableObject, Hashable {
     var date: Date
     var isExpanded = false
     
-    init(owner: Profile, description: String, link: String, date: Date, group: Group){
+    init(owner: Profile, description: String, link: String, date: Date, group: GroupModel){
         self.owner = owner
         self.eventType = .File
         

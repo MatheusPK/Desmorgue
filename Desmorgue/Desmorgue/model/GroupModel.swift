@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Group:Codable, ObservableObject {
+class GroupModel:Codable, ObservableObject {
     
     /*private var boardData:[Data] = []
     

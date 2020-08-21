@@ -20,7 +20,7 @@ class Notice : EventProtocol, NoticeProtocol, Codable, ObservableObject, Hashabl
     var date: Date
     var isExpanded = false
     
-    init(owner: Profile,title: String, description: String, date: Date, group: Group){
+    init(owner: Profile,title: String, description: String, date: Date, group: GroupModel){
         self.owner = owner
         self.eventType = .Notice
         
