@@ -31,8 +31,8 @@ struct ViewTop:View {
                 else{
                     Button(action: {ContentView().isMenuActive = true}){
                         Image(systemName: "line.horizontal.3")
-                            .frame(width: 50, height: 50, alignment: .center)
-                            .foregroundColor(.gray)
+                            .frame(width: 40, height: 40, alignment: .center)
+                            .foregroundColor(.pink)
                             .scaleEffect(2)
                     }
                 }
@@ -46,8 +46,8 @@ struct ViewTop:View {
                 
                 Button(action: {ContentView().profilePage = true}){
                     Image(systemName: "person.circle")
-                        .frame(width: 50, height: 50, alignment: .center)
-                        .foregroundColor(.gray)
+                        .frame(width: 40, height: 40, alignment: .center)
+                        .foregroundColor(.pink)
                         .scaleEffect(2)
                 }
             }.padding(.horizontal, 15)

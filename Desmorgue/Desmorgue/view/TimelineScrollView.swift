@@ -23,7 +23,7 @@ struct TimelineScrollView: View {
             
             //TimelineBar(index: self.$index, offset: self.$offset)
             //Divider()
-
+            
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 0) {
                     ForEach(orderedTasks, id: \.self) { task in
@@ -38,12 +38,13 @@ struct TimelineScrollView: View {
                                             .frame(width: 55, height: 55)
                                         
                                         Circle()
-                                            .frame(width: 53, height: 53)
-                                            .foregroundColor(.pink) 
-                                            .opacity(0.8)
+                                            .frame(width: 51, height: 51)
+                                            .foregroundColor(.gray)
+                                            .opacity(0.4)
                                         
                                         Text(dateToString(date: task.deadline))
-                                            .frame(width: 80)
+                                            .frame(width: 50)
+                                            .font(.system(size: 10))
                                     }
                                 }
                                 else {
@@ -53,24 +54,24 @@ struct TimelineScrollView: View {
                                             .frame(width: 55, height: 55)
                                         
                                         Circle()
-                                            .frame(width: 53, height: 53)
+                                            .frame(width: 51, height: 51)
                                             .foregroundColor(.green)
                                             .opacity(0.8)
                                         
                                         Text(dateToString(date: task.deadline))
-                                            .frame(width: 80)
+                                            .frame(width: 50)
+                                            .font(.system(size: 10))
                                     }
                                 }
-                                Text(task.title)
-                                    .font(.system(size: 20))
-                                    .frame(height: 85)
-                                
+                               Text(task.title)
+                                .font(.system(size: 18))
+                                .frame(height: 55, alignment: .leading)
                                 Spacer()
                             }
                             HStack(spacing: 0){
                                 
                                 Rectangle()
-                                    .frame(width: 41)
+                                    .frame(width: 26)
                                     .foregroundColor(.clear)
                                 
                                 Rectangle()
@@ -81,9 +82,15 @@ struct TimelineScrollView: View {
                             }
                         }
                     }
-                    
-                    TimelineAddButton()
-                    
+                    HStack{
+                        Rectangle()
+                            .frame(width: 29)
+                            .foregroundColor(.white)
+                            .padding(.top,-50)
+                            .padding(.trailing)
+                        
+                        Spacer()
+                    }
                 }
                 .padding(.top, 10)
                 .padding(.horizontal, 15)
@@ -152,7 +159,7 @@ struct TimelineBar:View {
         ZStack(){
             
             Rectangle()
-            .foregroundColor(.init(UIColor.systemGray5))
+                .foregroundColor(.init(UIColor.systemGray5))
             
             VStack(alignment: .center, content: {
                 
@@ -162,16 +169,16 @@ struct TimelineBar:View {
                     }) {
                         VStack(spacing: 8){
                             HStack(spacing: 12){
-                            Image(systemName: "exclamationmark.triangle")
-                                .foregroundColor(self.index == 0 ? .black: Color.black.opacity(0.7))
-                            Text("Todas")
-                                .foregroundColor(self.index == 0 ? .black: Color.black.opacity(0.7))
-                            
-                        }
-                        Capsule()
-                            .fill(self.index == 0 ? Color.black: Color.clear)
-                            .frame(height: 4)
-                            .padding(.horizontal, 5)
+                                Image(systemName: "exclamationmark.triangle")
+                                    .foregroundColor(self.index == 0 ? .black: Color.black.opacity(0.7))
+                                Text("Todas")
+                                    .foregroundColor(self.index == 0 ? .black: Color.black.opacity(0.7))
+                                
+                            }
+                            Capsule()
+                                .fill(self.index == 0 ? Color.black: Color.clear)
+                                .frame(height: 4)
+                                .padding(.horizontal, 5)
                         }
                     }
                     Button(action: {
@@ -183,7 +190,7 @@ struct TimelineBar:View {
                                     .foregroundColor(self.index == 1 ? .black: Color.black.opacity(0.7))
                                 Text("Afazer")
                                     .foregroundColor(self.index == 1 ? .black: Color.black.opacity(0.7))
-                                       
+                                
                             }
                             Capsule()
                                 .fill(self.index == 1 ? Color.black: Color.clear)
@@ -191,7 +198,7 @@ struct TimelineBar:View {
                                 .padding(.horizontal, 5)
                         }
                     }
-
+                    
                 }
             })
             
