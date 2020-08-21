@@ -31,7 +31,8 @@ struct TaskCard: View {
                             .font(.system(size: 25))
                             .foregroundColor(.black)
                             .frame(minHeight: 100)
-                            .frame(width: 380)
+                                .frame(width: 380, alignment: .leading)
+                                .padding(.horizontal, 25)
                             
                             
                             Spacer()
@@ -83,7 +84,8 @@ struct TaskCard: View {
                                 .font(.system(size: 25))
                                 .foregroundColor(.black)
                                 .frame(minHeight: 100)
-                                .frame(width: 380)
+                                .frame(width: 380, alignment: .leading)
+                                .padding(.horizontal, 25)
                             
                             HStack(){
                                 Text(associatedTask.getDeadline())
@@ -132,7 +134,8 @@ struct NoticeCard: View {
                             .font(.system(size: 25))
                             .foregroundColor(.black)
                             .frame(minHeight: 100)
-                            .frame(width: 380)
+                            .frame(width: 380, alignment: .leading)
+                            .padding(.horizontal, 25)
                             
                             Spacer()
                             
@@ -180,7 +183,8 @@ struct NoticeCard: View {
                             .font(.system(size: 25))
                             .foregroundColor(.black)
                             .frame(minHeight: 100)
-                            .frame(width: 380)
+                            .frame(width: 380, alignment: .leading)
+                            .padding(.horizontal, 25)
                             
                             HStack(){
                                 Spacer()
@@ -223,7 +227,8 @@ struct FileCard: View {
                             .font(.system(size: 25))
                             .foregroundColor(.black)
                             .frame(minHeight: 100)
-                            .frame(width: 380)
+                            .frame(width: 380, alignment: .leading)
+                            .padding(.horizontal, 25)
                             
                             Spacer()
                             
@@ -261,7 +266,8 @@ struct FileCard: View {
                             .font(.system(size: 25))
                             .foregroundColor(.black)
                             .frame(minHeight: 100)
-                            .frame(width: 380)
+                            .frame(width: 380, alignment: .leading)
+                            .padding(.horizontal, 25)
                             
                             HStack(){
                                 Spacer()
