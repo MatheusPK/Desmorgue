@@ -30,10 +30,9 @@ struct TaskCard: View {
                             Text(associatedTask.title)
                             .font(.system(size: 25))
                             .foregroundColor(.black)
-                            .frame(minHeight: 100)
-                                .frame(width: 380, alignment: .leading)
-                                .padding(.horizontal, 25)
-                            
+                            .frame(minHeight: 150)
+                            .frame(alignment: .leading)
+                            .padding(.horizontal, 20)
                             
                             Spacer()
                             
@@ -84,8 +83,8 @@ struct TaskCard: View {
                                 .font(.system(size: 25))
                                 .foregroundColor(.black)
                                 .frame(minHeight: 100)
-                                .frame(width: 380, alignment: .leading)
-                                .padding(.horizontal, 25)
+                                .frame(alignment: .leading)
+                                .padding(.horizontal, 20)
                             
                             HStack(){
                                 Text(associatedTask.getDeadline())
@@ -133,9 +132,9 @@ struct NoticeCard: View {
                             Text(associatedNotice.title)
                             .font(.system(size: 25))
                             .foregroundColor(.black)
-                            .frame(minHeight: 100)
-                            .frame(width: 380, alignment: .leading)
-                            .padding(.horizontal, 25)
+                            .frame(minHeight: 150)
+                            .frame(alignment: .leading)
+                            .padding(.horizontal, 20)
                             
                             Spacer()
                             
@@ -183,8 +182,8 @@ struct NoticeCard: View {
                             .font(.system(size: 25))
                             .foregroundColor(.black)
                             .frame(minHeight: 100)
-                            .frame(width: 380, alignment: .leading)
-                            .padding(.horizontal, 25)
+                            .frame(alignment: .leading)
+                            .padding(.horizontal, 20)
                             
                             HStack(){
                                 Spacer()
@@ -220,16 +219,17 @@ struct FileCard: View {
                             .padding(.horizontal, 15)
                             .foregroundColor(.green)
                             .opacity(0.6)
+                            
                         
                         VStack(){
                             
                             Text(associatedFile.description)
                             .font(.system(size: 25))
                             .foregroundColor(.black)
-                            .frame(minHeight: 100)
-                            .frame(width: 380, alignment: .leading)
-                            .padding(.horizontal, 25)
-                            
+                            .frame(minHeight: 150)
+                            .frame(alignment: .leading)
+                            .padding(.horizontal, 20)
+                        
                             Spacer()
                             
                             Image(systemName: "icloud.and.arrow.down")
@@ -266,8 +266,8 @@ struct FileCard: View {
                             .font(.system(size: 25))
                             .foregroundColor(.black)
                             .frame(minHeight: 100)
-                            .frame(width: 380, alignment: .leading)
-                            .padding(.horizontal, 25)
+                            .frame(alignment: .leading)
+                            .padding(.horizontal, 20)
                             
                             HStack(){
                                 Spacer()
